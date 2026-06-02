@@ -4,7 +4,6 @@ set $unfocused #665c54
 set $urgent #cc241d
 output eDP-1 disable
 output HDMI-A-1 {
-bg $HOME/Imagens/afina.png center
 subpixel rgb
 }
 input type:keyboard {
@@ -67,11 +66,8 @@ bindsym Mod4+Shift+r reload
 bindsym Mod4+Return exec alacritty
 bindsym Mod4+e exec alacritty -e nvim
 bindsym Mod4+b exec firefox
+bindsym Super_R exec quickshell ipc call lock_manager lock
 bindsym Mod4+p exec rofi -show drun -theme $HOME/Documentos/repos/configs/rofi/launcher.rasi
-bindsym Super_R exec swaylock -f
 bindsym Print exec grim -g "$(slurp)" - | tee ~/Imagens/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy && notify-send "Print!"
+exec quickshell
 exec wl-paste --watch cliphist store
-exec swayidle -w timeout 600 'swaylock -f' timeout 610 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' before-sleep 'swaylock -f'
-bar {
-swaybar_command waybar
-}

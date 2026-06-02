@@ -1,5 +1,6 @@
 # Meus Dots
 Meus arquivos de customização e scripts pensados para um fluxo de trabalho em ambiente linux minimalista que se baseia no uso de window manager.
+NOTA: As configs do SwayWM ainda não foram testadas no setup com o quickshell, é possível que haja problemas.
 
 📦 Pacotes utilizados
 
@@ -12,8 +13,6 @@ Meus arquivos de customização e scripts pensados para um fluxo de trabalho em 
 • Editor de texto: Neovim
 
 • App launcher: Rofi
-
-• Lockscreen: Swaylock
 
 • Video player: MPV
 

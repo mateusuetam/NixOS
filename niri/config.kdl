@@ -57,7 +57,7 @@ Mod+Return{spawn "alacritty";}
 Mod+E{spawn "alacritty" "-e" "nvim";}
 Mod+P{spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/launcher.rasi";}
 Mod+B{spawn "firefox";}
-Mod+Super_R{spawn "sh" "-c" "swaylock -f";}
+Mod+Super_R {spawn "quickshell" "ipc" "call" "lock_manager" "lock";}
 Mod+F{maximize-column;}
 Mod+M{maximize-window-to-edges;}
 Mod+Shift+F{fullscreen-window;}

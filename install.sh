@@ -18,7 +18,6 @@ packages=(
 "openssh"
 "quickshell"
 "rofi"
-"swaylock"
 "ttf-jetbrains-mono-nerd"
 "unzip"
 "upower"
@@ -35,7 +34,7 @@ echo "Erro: Pasta $DOTS_DIR não encontrada. Verifique o caminho do clone."
 exit 1
 fi
 mkdir -p "$CONFIG_DIR"
-folders=("alacritty" "mpv" "niri" "nvim" "quickshell" "rofi" "scripts" "swaylock")
+folders=("alacritty" "mpv" "niri" "nvim" "quickshell" "rofi" "scripts")
 for folder in "${folders[@]}"; do
 ln -sfn "$DOTS_DIR/$folder" "$CONFIG_DIR/$folder"
 done

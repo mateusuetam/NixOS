@@ -10,7 +10,7 @@ case $chosen in
 $sair)
 niri msg action quit --skip-confirmation ;;
 $bloquear)
-swaylock ;;
+quickshell ipc call lock_manager lock ;;
 $suspender)
 systemctl suspend ;;
 $reiniciar)
