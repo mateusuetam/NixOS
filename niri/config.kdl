@@ -40,12 +40,12 @@ active-color "#bdae93"
 inactive-color "#665c54"
 urgent-color "#cc241d"
 }
-gaps 8
+gaps 15
 struts{
-left 8
-right 8
-top 8
-bottom 8
+left 15
+right 15
+top 15
+bottom 15
 }
 }
 window-rule{

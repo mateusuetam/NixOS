@@ -11,7 +11,6 @@ alias ..='cd ..'
 alias rmcache='rm -rf $HOME/.cache/*'
 alias rmorphan='sudo pacman -Rns $(pacman -Qdtq)'
 alias start='niri-session'
-alias scan='$HOME/Documentos/repos/configs/scripts/clamav.sh'
 alias qmllint="/usr/lib/qt6/bin/qmllint"
 alias netbeans='_JAVA_AWT_WM_NONREPARENTING=1 _JAVA_OPTIONS=-Dawt.useSystemAAFontSettings=lcd $HOME/netbeans/bin/netbeans'
 bind '"\e[A": history-search-backward'

@@ -34,25 +34,7 @@ NOTA: As configs do SwayWM ainda não foram testadas no setup com o quickshell, 
 
 - Clona a repo dos plugins do neovim.
 
-• ClamAV
-
-- Pode realizar um scan completo, na pasta home ou de Downloads.
-
-- Exclui a pasta /sys/kernel/debug/dri/ do scan para evitar que o sistema crashe.
-
-- Atualiza o banco de dados do ClamAV antes de realizar um scan.
-
-- Move arquivos sinalizados para uma pasta na pasta home chamada Quarentena (cria automaticamente caso não exista).
-
 Adendo: os seguintes scripts utilizam do rofi para fornecer a interface gráfica e mandam notificações através do notify-send (futuramente as funcionalidades serão migradas para o quickshell para uma maior integração com o ambiente).
-
-• Bluetooth
-
-- Liga ou Desliga o bluetooth (rfkill unblock/block).
-
-- Realiza busca e emparelha com o dispositivo desejado (caso o primeiro scan não exiba nada, basta fazer um rescan para popular a lista).
-
-- Exibe dispositivos emparelhados e fornece ações para conectar/desconectar, remover, confiar/desconfiar.
 
 • Wifi
 
@@ -63,13 +45,3 @@ Adendo: os seguintes scripts utilizam do rofi para fornecer a interface gráfica
 - Ao tentar se conectar, é mostrada uma confirmação e, logo em seguida, uma tela de input para digitar a senha é mostrada (ainda não implementei as validações para verificar se a senha foi inserida corretamente).
 
 - Exibe redes conectadas e fornece ações de conectar, desconectar e esquecer/remover.
-
-• Redfilter
-
-- Um menu para ativar/desativar o protetor de luz azul no modo padrão (2500k).
-
-- Fornece a opção de definir um valor customizado entre 1000 ~ 10000 (valores maiores/menores poderiam tornar a visibilidade extremamente comprometida).
-
-• Powermenu
-
-- Um menu de sessão simples para sair da sessão, bloquear tela com o swaylock, suspender o computador, reiniciar ou desligar.

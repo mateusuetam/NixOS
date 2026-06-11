@@ -7,7 +7,6 @@ packages=(
 "alacritty"
 "bc"
 "brightnessctl"
-"clamav"
 "cliphist"
 "firefox"
 "gammastep"
