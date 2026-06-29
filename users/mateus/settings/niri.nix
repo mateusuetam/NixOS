@@ -69,7 +69,7 @@ binds {
 Mod+Return { spawn "alacritty"; }
 Mod+E { spawn "alacritty" "-e" "nvim"; }
 Mod+B { spawn "firefox"; }
-Mod+P { spawn "quickshell" "ipc" "call" "app_launcher" "open"; }
+Mod+P { spawn "quickshell" "ipc" "call" "start_launcher" "open"; }
 Mod+Super_R { spawn "quickshell" "ipc" "call" "lock_manager" "lock"; }
 Mod+F { maximize-column; }
 Mod+M { maximize-window-to-edges; }
