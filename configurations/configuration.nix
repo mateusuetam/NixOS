@@ -18,22 +18,37 @@ kernelParams = [
 "nmi_watchdog=0"
 ];
 blacklistedKernelModules = [
-"sp5100_tco"
-"iTCO_wdt"
-"iTCO_vendor_support"
-"watchdog"
 "thunderbolt"
-"ahci"
-"libahci"
-"joydev"
-"mousedev"
+"ahci" "libahci"
+"joydev" "mousedev"
+"sp5100_tco" "iTCO_wdt" "iTCO_vendor_support" "watchdog"
+"ax25" "netrom" "rose" "adfs" "affs" "befs" "cramfs" "efs" "freevxfs"
+"hfs" "hfsplus" "hpfs" "jfs" "minix" "nilfs2" "omfs" "qnx4" "qnx6" "sysv" "vivid"
 ];
+kernel.sysctl = {
+"net.ipv4.conf.all.accept_redirects" = 0;
+"net.ipv6.conf.all.accept_redirects" = 0;
+"net.ipv4.conf.default.accept_redirects" = 0;
+"net.ipv6.conf.default.accept_redirects" = 0;
+"net.ipv4.conf.all.accept_source_route" = 0;
+"net.ipv6.conf.all.accept_source_route" = 0;
+"net.ipv4.conf.default.accept_source_route" = 0;
+"net.ipv6.conf.default.accept_source_route" = 0;
+"net.ipv4.conf.all.send_redirects" = 0;
+"net.ipv4.conf.default.send_redirects" = 0;
+"net.ipv4.tcp_syncookies" = 1;
+"net.ipv4.tcp_rfc1337" = 1;
+"net.ipv4.icmp_echo_ignore_all" = 1;
+"kernel.dmesg_restrict" = 1;
+"kernel.kptr_restrict" = 2;
+};
 };
 
 networking = {
 hostName = "pc";
-networkmanager.enable = true;
+nftables.enable = true;
 firewall.enable = true;
+networkmanager.enable = true;
 modemmanager.enable = false;
 };
 
