@@ -30,10 +30,6 @@ accel-profile "flat"
 }
 focus-follows-mouse max-scroll-amount="0%"
 }
-cursor {
-xcursor-theme "Bibata-Modern-Classic"
-xcursor-size 24
-}
 layout {
 focus-ring {
 off
