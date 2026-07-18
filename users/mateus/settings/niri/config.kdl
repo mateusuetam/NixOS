@@ -46,7 +46,6 @@ bottom 20
 }
 }
 window-rule {
-geometry-corner-radius 6
 clip-to-geometry true
 open-maximized true
 }
