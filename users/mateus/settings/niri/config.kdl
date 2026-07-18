@@ -54,6 +54,14 @@ layer-rule {
 match namespace="^wallpaper-blur$"
 place-within-backdrop true
 }
+
+window-rule {
+match app-id="^Alacritty$"
+background-effect {
+blur true
+xray true
+}
+}
 binds {
 Mod+Return { spawn "alacritty"; }
 Mod+E { spawn "alacritty" "-e" "nvim"; }

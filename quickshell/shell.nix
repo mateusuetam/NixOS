@@ -74,7 +74,6 @@ KillMode = "process";
 (lib.mkIf config.my.quickshell.devmode.enable {
 
 environment.systemPackages = with pkgs; [
-qtcreator
 qt6.qtwayland
 
 (symlinkJoin {

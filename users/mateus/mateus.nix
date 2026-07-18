@@ -24,7 +24,7 @@ extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
 my = {
 desktop = {
 opensource.enable = true;
-proprietary.enable = false;
+proprietary.enable = true;
 };
 browser.enable = true;
 course.enable = true;
