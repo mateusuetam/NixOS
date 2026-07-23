@@ -1,3 +1,4 @@
+include "myshell.kdl"
 hotkey-overlay {
 skip-at-startup
 }
@@ -38,9 +39,6 @@ off
 }
 border {
 width 2
-active-color "#bdae93"
-inactive-color "#665c54"
-urgent-color "#cc241d"
 }
 gaps 20
 struts {
