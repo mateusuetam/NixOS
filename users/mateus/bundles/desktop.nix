@@ -50,10 +50,12 @@ zip
 
 nixpkgs.config.allowUnfreePredicate = pkg:
 builtins.elem (lib.getName pkg) [
+"discord"
 "spotify"
 ];
 
 users.users.mateus.packages = with pkgs; [
+discord
 spotify
 ];
 })
