@@ -2,7 +2,6 @@
 
 {
 imports = [
-./hardware-configuration.nix
 ../users/mateus/mateus.nix
 ];
 
