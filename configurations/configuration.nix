@@ -116,7 +116,6 @@ percentageAction = 10;
 criticalPowerAction = "Suspend";
 allowRiskyCriticalPowerAction = true;
 };
-displayManager.enable = false;
 };
 
 my.users.mateus.enable = true;

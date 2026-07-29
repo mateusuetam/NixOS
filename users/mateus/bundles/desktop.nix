@@ -2,13 +2,16 @@
 
 {
 options.my.desktop = {
-opensource.enable = lib.mkEnableOption "Bundle de ambiente desktop opensource";
-proprietary.enable = lib.mkEnableOption "Bundle de ambiente desktop proprietário";
+general.enable = lib.mkEnableOption "Bundle de ferramentas gerais para desktop";
+niri.enable = lib.mkEnableOption "Bundle de ambiente desktop niri";
+gnome.enable = lib.mkEnableOption "Bundle de ambiente desktop gnome";
 };
 
 config = lib.mkMerge [
 
-(lib.mkIf config.my.desktop.opensource.enable {
+# --- Bundle General ---
+
+(lib.mkIf config.my.desktop.general.enable {
 
 xdg.portal.enable = true;
 
@@ -30,35 +33,59 @@ fi
 '';
 };
 git.enable = true;
-niri.enable = true;
 };
+})
+
+# --- Bundle Niri ---
+
+(lib.mkIf config.my.desktop.niri.enable {
+
+programs.niri.enable = true;
+services.displayManager.enable = false;
 
 users.users.mateus.packages = with pkgs; [
 alacritty
 bc
 bibata-cursors
-gimp
-mpv
-tree
-unzip
 xwayland-satellite
-zip
 ];
 })
 
-(lib.mkIf config.my.desktop.proprietary.enable {
+# --- Bundle Gnome ---
 
-nixpkgs.config.allowUnfreePredicate = pkg:
-builtins.elem (lib.getName pkg) [
-"discord"
-"spotify"
+(lib.mkIf config.my.desktop.gnome.enable {
+
+services.displayManager.gdm.enable = true;
+services.desktopManager.gnome.enable = true;
+
+fonts.packages = with pkgs; [
+monaspace
 ];
 
-users.users.mateus.packages = with pkgs; [
-discord
-spotify
+environment.gnome.excludePackages = with pkgs; [
+baobab
+decibels
+epiphany
+gnome-calendar
+gnome-characters
+gnome-clocks
+gnome-connections
+gnome-contacts
+gnome-disk-utility
+gnome-font-viewer
+gnome-logs
+gnome-maps
+gnome-music
+gnome-system-monitor
+gnome-tecla
+gnome-tour
+gnome-user-docs
+gnome-weather
+seahorse
+simple-scan
+snapshot
+yelp
 ];
 })
-
 ];
 }

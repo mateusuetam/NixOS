@@ -7,6 +7,7 @@ imports = [
 ./bundles/desktop.nix
 ./bundles/dotfiles.nix
 ./bundles/neovim.nix
+./bundles/softwares.nix
 ../../quickshell/shell.nix
 ];
 
@@ -22,22 +23,32 @@ extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
 };
 
 my = {
-desktop = {
-opensource.enable = true;
-proprietary.enable = true;
-};
-browser.enable = true;
-course.enable = true;
-neovim.enable = true;
 dotfiles = {
 enable = true;
 homeDir = "/home/mateus";
 owner = "mateus:users";
 };
-quickshell = {
-shell.enable = true;
-devmode.enable = true;
+
+softwares = {
+opensource.enable = true;
+proprietary.enable = true;
 };
+
+desktop = {
+general.enable = true;
+niri.enable = false;
+gnome.enable = true;
+};
+
+quickshell = {
+shell.enable = false;
+devmode.enable = false;
+};
+
+browser.enable = true;
+neovim.enable = true;
+
+course.enable = true;
 };
 };
 }
