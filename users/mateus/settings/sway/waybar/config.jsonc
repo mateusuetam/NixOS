@@ -1,0 +1,152 @@
+{
+"modules-left": [
+"sway/workspaces",
+"mpris"
+],
+
+"modules-center": [
+"clock"
+],
+
+"modules-right": [
+"tray",
+"idle_inhibitor",
+"custom/cliphist",
+"bluetooth",
+"network",
+"wireplumber#source",
+"wireplumber#sink",
+"backlight",
+"battery",
+"custom/menu"
+],
+
+"sway/workspaces": {
+"all-outputs": true,
+"format": "{name}"
+},
+
+"mpris": {
+"format": "{status_icon} {artist} - {title}",
+"format-paused": "{status_icon} {artist} - {title}",
+"status-icons": {
+"paused": "󰐊",
+"playing": "󰏤",
+"stopped": "󰓛"
+},
+"max-length": 35
+},
+
+"clock": {
+"format": "{:%H:%M}",
+"format-alt": "{:L%A, %e de %b - %H:%M}",
+"locale": "pt_BR.UTF-8",
+"tooltip": true,
+"tooltip-format": "<tt><span size='11pt'>{calendar}</span></tt>",
+"calendar": {
+"mode": "month",
+"mode-mon-col": 1,
+"weeks-pos": "right",
+"on-scroll": 1,
+"format": {
+"months": "<span color='#ff6699'><b>{}</b></span>",
+"days": "<span color='#2ecc71'><b>{}</b></span>",
+"weeks": "<span color='#9b59b6'><b>W{}</b></span>",
+"weekdays": "<span color='#f1c40f'><b>{}</b></span>",
+"today": "<span color='#e74c3c'><b><u>{}</u></b></span>"
+}
+},
+"interval": 60
+},
+
+"tray": {
+"icon-size": 18,
+"spacing": 30,
+"show-passive-items": true
+},
+
+"idle_inhibitor": {
+"format": "{icon}",
+"format-icons": {
+"activated": "",
+"deactivated": ""
+},
+"timeout": 720
+},
+
+"custom/cliphist": {
+"format": "󰆏",
+"tooltip": false,
+"on-click": "cliphist list | rofi -dmenu -theme $HOME/Repos/NixOS/users/mateus/settings/sway/rofi/launcher.rasi | cliphist decode | wl-copy",
+"on-click-right": "cliphist wipe && notify-send 'Cliphist' 'Histórico limpo!'"
+},
+
+"bluetooth": {
+"format": "󰂲",
+"format-on": "{icon}",
+"format-off": "{icon}", 
+"format-connected":"{icon}",
+"format-icons":{
+"on":"󰂯",
+"off": "󰂲",
+"connected": "󰂱"
+},
+"on-click": "$HOME/Repos/NixOS/users/mateus/settings/sway/scripts/blue.sh",
+"on-click-right": "rfkill toggle bluetooth"
+},
+
+"network": {
+"format-wifi": "󰤢",
+"format-ethernet": "󰈀",
+"format-disconnected": "󰤠",
+"format-disabled": "󰤭",
+"tooltip-format": "{essid}",
+"on-click": "$HOME/Repos/NixOS/users/mateus/settings/sway/scripts/wifi.sh",
+"on-click-right": "rfkill toggle wlan"
+},
+
+"backlight": {
+"format": "{icon}  {percent}%",
+"format-icons": ["","󰃜", "󰃛", "󰃞","󰃝","󰃟","󰃠"],
+"tooltip": false,
+"on-click": "$HOME/Repos/NixOS/users/mateus/settings/sway/scripts/redfilter.sh",
+"on-click-right": "pkill gammastep || gammastep -O 2500"
+},
+
+"wireplumber#sink": {
+"format": "{icon}  {volume}%",
+"format-muted": "",
+"format-icons": ["", "", ""],
+"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+"scroll-step": 5
+},
+
+"wireplumber#source": {
+"node-type": "Audio/Source",
+"format": " {volume}%",
+"format-muted": "",
+"on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+"scroll-step": 5
+},
+
+"battery": {
+"interval": 120,
+"states": {
+"good": 80,
+"warning": 29,
+"critical": 19
+},
+"format": "{icon}  {capacity}%",
+"format-full": " {icon}  {capacity}%",
+"format-charging": " {capacity}%",
+"format-plugged": " {capacity}%",
+"format-icons": ["", "", "", "", ""],
+"tooltip": false
+},
+
+"custom/menu": {
+"format": "⏻",
+"tooltip": false,
+"on-click": "$HOME/Repos/NixOS/users/mateus/settings/sway/scripts/powermenu.sh"
+}
+}

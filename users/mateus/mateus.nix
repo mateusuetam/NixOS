@@ -6,6 +6,7 @@ imports = [
 ./bundles/course.nix
 ./bundles/desktop.nix
 ./bundles/dotfiles.nix
+./bundles/environment.nix
 ./bundles/neovim.nix
 ./bundles/softwares.nix
 ../../quickshell/shell.nix
@@ -34,10 +35,10 @@ opensource.enable = true;
 proprietary.enable = true;
 };
 
-desktop = {
-general.enable = true;
+environment = {
 niri.enable = false;
-gnome.enable = true;
+sway.enable = true;
+gnome.enable = false;
 };
 
 quickshell = {
@@ -45,9 +46,9 @@ shell.enable = false;
 devmode.enable = false;
 };
 
+desktop.enable = true;
 browser.enable = true;
 neovim.enable = true;
-
 course.enable = true;
 };
 };

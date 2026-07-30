@@ -1,0 +1,76 @@
+include /etc/sway/config.d/*
+set $fg #bdae93
+set $unfocused #665c54
+set $urgent #cc241d
+output eDP-1 {
+bg $HOME/Imagens/BirthOfVenus.jpg center
+subpixel rgb
+}
+input type:keyboard {
+xkb_layout "br"
+xkb_numlock enabled
+}
+input type:pointer {
+accel_profile "flat"
+pointer_accel 0
+}
+input type:touchpad {
+accel_profile "flat"
+pointer_accel 0
+tap enabled
+natural_scroll enabled
+}
+gaps inner 10
+gaps outer 10
+default_border pixel 2
+default_floating_border pixel 2
+client.focused $fg $fg $fg $fg
+client.focused_inactive $unfocused $unfocused $unfocused $unfocused
+client.unfocused $unfocused $unfocused $unfocused $unfocused
+client.urgent $urgent $urgent $urgent $urgent
+bindsym Mod4+q kill
+bindsym Mod4+shift+f fullscreen
+bindsym Mod4+space floating toggle
+bindsym Mod4+Shift+space focus mode_toggle
+floating_modifier Mod4 normal
+bindsym Mod4+Up focus up
+bindsym Mod4+Left focus right
+bindsym Mod4+Down focus down
+bindsym Mod4+Right focus left
+bindsym Mod4+Shift+Up move up
+bindsym Mod4+Shift+Left move right
+bindsym Mod4+Shift+Down move down
+bindsym Mod4+Shift+Right move left
+bindsym Mod4+1 workspace number 1
+bindsym Mod4+2 workspace number 2
+bindsym Mod4+3 workspace number 3
+bindsym Mod4+4 workspace number 4
+bindsym Mod4+5 workspace number 5
+bindsym Mod4+6 workspace number 6
+bindsym Mod4+7 workspace number 7
+bindsym Mod4+8 workspace number 8
+bindsym Mod4+9 workspace number 9
+bindsym Mod4+0 workspace number 10
+bindsym Mod4+Shift+1 move container to workspace number 1
+bindsym Mod4+Shift+2 move container to workspace number 2
+bindsym Mod4+Shift+3 move container to workspace number 3
+bindsym Mod4+Shift+4 move container to workspace number 4
+bindsym Mod4+Shift+5 move container to workspace number 5
+bindsym Mod4+Shift+6 move container to workspace number 6
+bindsym Mod4+Shift+7 move container to workspace number 7
+bindsym Mod4+Shift+8 move container to workspace number 8
+bindsym Mod4+Shift+9 move container to workspace number 9
+bindsym Mod4+Shift+0 move container to workspace number 10
+bindsym Mod4+Shift+r reload
+bindsym Mod4+Return exec alacritty
+bindsym Mod4+e exec alacritty -e nvim
+bindsym Mod4+b exec firefox
+bindsym Mod4+p exec rofi -show drun -theme $HOME/Repos/NixOS/users/mateus/settings/sway/rofi/launcher.rasi
+bindsym Super_R exec swaylock -f
+bindsym Print exec grim -g "$(slurp)" - | tee ~/Imagens/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy && notify-send "Print!"
+exec mako
+exec wl-paste --watch cliphist store
+exec swayidle -w timeout 600 'swaylock -f' timeout 610 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' before-sleep 'swaylock -f'
+bar {
+swaybar_command waybar
+}
