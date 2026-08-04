@@ -11,11 +11,10 @@ config = lib.mkMerge [
 (lib.mkIf config.my.softwares.opensource.enable {
 
 users.users.mateus.packages = with pkgs; [
+alacritty
+bc
 gimp
 mpv
-tree
-unzip
-zip
 ];
 })
 
@@ -23,13 +22,13 @@ zip
 
 nixpkgs.config.allowUnfreePredicate = pkg:
 builtins.elem (lib.getName pkg) [
-"discord"
 "spotify"
+"vscode"
 ];
 
 users.users.mateus.packages = with pkgs; [
-discord
 spotify
+vscode
 ];
 })
 ];

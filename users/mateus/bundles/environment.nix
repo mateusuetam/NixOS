@@ -17,9 +17,6 @@ programs.niri.enable = true;
 services.displayManager.enable = false;
 
 users.users.mateus.packages = with pkgs; [
-alacritty
-bc
-bibata-cursors
 xwayland-satellite
 ];
 })
@@ -37,9 +34,6 @@ xwayland.enable = true;
 };
 
 users.users.mateus.packages = with pkgs; [
-alacritty
-bc
-bibata-cursors
 brightnessctl
 cliphist
 gammastep
@@ -70,10 +64,12 @@ environment.gnome.excludePackages = with pkgs; [
 baobab
 decibels
 epiphany
+gnome-calculator
 gnome-calendar
 gnome-characters
 gnome-clocks
 gnome-connections
+gnome-console
 gnome-contacts
 gnome-disk-utility
 gnome-font-viewer
@@ -82,10 +78,15 @@ gnome-maps
 gnome-music
 gnome-system-monitor
 gnome-tecla
+gnome-text-editor
 gnome-tour
 gnome-user-docs
 gnome-weather
+loupe
+nautilus
+papers
 seahorse
+showtime
 simple-scan
 snapshot
 yelp

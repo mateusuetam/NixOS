@@ -8,10 +8,11 @@ imports = [
 boot = {
 loader = {
 systemd-boot.enable = true;
+systemd-boot.editor = false;
 efi.canTouchEfiVariables = true;
 timeout = 1;
 };
-kernelPackages = pkgs.linuxPackages_latest;
+kernelPackages = pkgs.linuxPackages;
 kernelParams = [
 "nowatchdog"
 "nmi_watchdog=0"
@@ -34,10 +35,6 @@ kernel.sysctl = {
 "kernel.dmesg_restrict" = 1;
 "kernel.kptr_restrict" = 2;
 };
-extraModprobeConfig = ''
-options rtw89_pci disable_aspm_l1=y disable_aspm_l1ss=y
-options rtw89_core disable_ps_mode=y
-'';
 tmp.cleanOnBoot = true;
 };
 
@@ -87,7 +84,7 @@ experimental-features = [
 gc = {
 automatic = true;
 dates = "weekly";
-options = "--delete-older-than 3d";
+options = "--delete-older-than 7d";
 };
 };
 
@@ -116,6 +113,14 @@ percentageAction = 10;
 criticalPowerAction = "Suspend";
 allowRiskyCriticalPowerAction = true;
 };
+fstrim = {
+enable = true;
+interval = "weekly";
+};
+journald = {
+extraConfig = ''SystemMaxUse=64M'';
+};
+avahi.enable = false;
 };
 
 my.users.mateus.enable = true;

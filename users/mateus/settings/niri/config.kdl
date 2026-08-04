@@ -13,6 +13,12 @@ hot-corners {
 off
 }
 }
+output "HDMI-A-1" {
+mode "1920x1080@100.000"
+}
+output "eDP-1" {
+off
+}
 input {
 keyboard {
 xkb {

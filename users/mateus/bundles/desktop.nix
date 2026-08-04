@@ -26,5 +26,12 @@ fi
 };
 git.enable = true;
 };
+
+users.users.mateus.packages = with pkgs; [
+adwaita-icon-theme
+tree
+unzip
+zip
+];
 };
 }
