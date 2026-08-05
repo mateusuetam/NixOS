@@ -2,7 +2,7 @@
 separator_paired="󰂱 ────────── Dispositivos Pareados ────────── 󰂱"
 separator_scan="󰩊 ────────── Novos Dispositivos Achados ────────── 󰩊"
 menu() {
-rofi -dmenu -theme "$HOME/Repos/NixOS/users/mateus/settings/sway/rofi/menu.rasi" -p "$1"
+rofi -dmenu -theme "$HOME/.config/rofi/menu.rasi" -p "$1"
 }
 bt() {
 echo "$*" | bluetoothctl

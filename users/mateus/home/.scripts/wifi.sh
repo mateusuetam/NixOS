@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 menu() {
-rofi -dmenu -theme "$HOME/Repos/NixOS/users/mateus/settings/sway/rofi/menu.rasi" -p "Wi-Fi"
+rofi -dmenu -theme "$HOME/.config/rofi/menu.rasi" -p "Wi-Fi"
 }
 clean() {
 sed -r 's/\x1B\[[0-9;]*[mK]//g'
@@ -45,7 +45,7 @@ security=$(nmcli -t -f SSID,SECURITY dev wifi list | grep "^$ssid:" | cut -d: -f
 if [ -z "$security" ]; then
 nmcli dev wifi connect "$ssid" && notify-send "Conectado a $ssid"
 else
-password=$(rofi -dmenu -theme "$HOME/Repos/NixOS/users/mateus/settings/sway/rofi/input.rasi" -p "Senha para $ssid" -password)
+password=$(rofi -dmenu -theme "$HOME/.config/rofi/input.rasi" -p "Senha para $ssid" -password)
 [ -z "$password" ] && return
 nmcli dev wifi connect "$ssid" password "$password" && notify-send "Conectado a $ssid"
 fi

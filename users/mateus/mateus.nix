@@ -2,14 +2,8 @@
 
 {
 imports = [
-./bundles/browser.nix
-./bundles/course.nix
-./bundles/desktop.nix
-./bundles/dotfiles.nix
-./bundles/environment.nix
-./bundles/neovim.nix
-./bundles/softwares.nix
-../../quickshell/shell.nix
+./bundles
+./home
 ];
 
 options.my.users.mateus = {
@@ -24,32 +18,25 @@ extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
 };
 
 my = {
-dotfiles = {
+gnome.enable = true;
+niri.enable = false;
+sway.enable = false;
+
+quickshell.enable = false;
+quickshelldev.enable = false;
+shellminimal.enable = false;
+
+browser.enable = true;
+course.enable = true;
+fonts.enable = true;
+neovim.enable = false;
+tools.enable = true;
+
+homemanager = {
 enable = true;
 homeDir = "/home/mateus";
 owner = "mateus:users";
 };
-
-softwares = {
-opensource.enable = true;
-proprietary.enable = true;
-};
-
-environment = {
-niri.enable = false;
-sway.enable = true;
-gnome.enable = false;
-};
-
-quickshell = {
-shell.enable = false;
-devmode.enable = false;
-};
-
-desktop.enable = true;
-browser.enable = true;
-neovim.enable = true;
-course.enable = true;
 };
 };
 }

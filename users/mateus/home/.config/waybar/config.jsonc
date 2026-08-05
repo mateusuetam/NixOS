@@ -77,7 +77,7 @@
 "custom/cliphist": {
 "format": "󰆏",
 "tooltip": false,
-"on-click": "cliphist list | rofi -dmenu -theme $HOME/Repos/NixOS/users/mateus/settings/sway/rofi/launcher.rasi | cliphist decode | wl-copy",
+"on-click": "cliphist list | rofi -dmenu -theme $HOME/.config/rofi/launcher.rasi | cliphist decode | wl-copy",
 "on-click-right": "cliphist wipe && notify-send 'Cliphist' 'Histórico limpo!'"
 },
 
@@ -91,7 +91,7 @@
 "off": "󰂲",
 "connected": "󰂱"
 },
-"on-click": "$HOME/Repos/NixOS/users/mateus/settings/sway/scripts/blue.sh",
+"on-click": "$HOME/.scripts/blue.sh",
 "on-click-right": "rfkill toggle bluetooth"
 },
 
@@ -101,7 +101,7 @@
 "format-disconnected": "󰤠",
 "format-disabled": "󰤭",
 "tooltip-format": "{essid}",
-"on-click": "$HOME/Repos/NixOS/users/mateus/settings/sway/scripts/wifi.sh",
+"on-click": "$HOME/.scripts/wifi.sh",
 "on-click-right": "rfkill toggle wlan"
 },
 
@@ -109,7 +109,7 @@
 "format": "{icon}  {percent}%",
 "format-icons": ["","󰃜", "󰃛", "󰃞","󰃝","󰃟","󰃠"],
 "tooltip": false,
-"on-click": "$HOME/Repos/NixOS/users/mateus/settings/sway/scripts/redfilter.sh",
+"on-click": "$HOME/.scripts/redfilter.sh",
 "on-click-right": "pkill gammastep || gammastep -O 2500"
 },
 
@@ -147,6 +147,6 @@
 "custom/menu": {
 "format": "⏻",
 "tooltip": false,
-"on-click": "$HOME/Repos/NixOS/users/mateus/settings/sway/scripts/powermenu.sh"
+"on-click": "$HOME/.scripts/powermenu.sh"
 }
 }

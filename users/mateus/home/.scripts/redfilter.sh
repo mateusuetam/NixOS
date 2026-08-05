@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-MENU_THEME="$HOME/Repos/NixOS/users/mateus/settings/sway/rofi/menu.rasi"
-INPUT_THEME="$HOME/Repos/NixOS/users/mateus/settings/sway/rofi/input.rasi"
+MENU_THEME="$HOME/.config/rofi/menu.rasi"
+INPUT_THEME="$HOME/.config/rofi/input.rasi"
 MIN_TEMP=1000
 MAX_TEMP=25000
 DEFAULT_TEMP=2500

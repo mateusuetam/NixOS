@@ -12,7 +12,7 @@ systemd-boot.editor = false;
 efi.canTouchEfiVariables = true;
 timeout = 1;
 };
-kernelPackages = pkgs.linuxPackages;
+kernelPackages = pkgs.linuxPackages_latest;
 kernelParams = [
 "nowatchdog"
 "nmi_watchdog=0"
@@ -123,14 +123,14 @@ extraConfig = ''SystemMaxUse=64M'';
 avahi.enable = false;
 };
 
-my.users.mateus.enable = true;
-
 documentation = {
 man.enable = true;
 info.enable = false;
 doc.enable = false;
 nixos.enable = false;
 };
+
+my.users.mateus.enable = true;
 
 system.stateVersion = "26.05";
 }

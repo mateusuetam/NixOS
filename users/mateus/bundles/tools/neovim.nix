@@ -13,7 +13,7 @@ defaultEditor = true;
 configure = {
 customRC = ''
 lua << EOF
-${builtins.readFile ../settings/nvim/init.lua}
+${builtins.readFile ../../home/.config/nvim/init.lua}
 EOF
 '';
 

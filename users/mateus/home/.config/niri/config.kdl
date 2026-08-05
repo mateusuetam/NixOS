@@ -1,4 +1,4 @@
-include "myshell.kdl"
+include optional=true "myshell.kdl"
 hotkey-overlay {
 skip-at-startup
 }

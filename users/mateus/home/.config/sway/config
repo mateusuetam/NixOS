@@ -71,7 +71,7 @@ bindsym Mod4+Shift+r reload
 bindsym Mod4+Return exec alacritty
 bindsym Mod4+e exec alacritty -e nvim
 bindsym Mod4+b exec firefox
-bindsym Mod4+p exec rofi -show drun -theme $HOME/Repos/NixOS/users/mateus/settings/sway/rofi/launcher.rasi
+bindsym Mod4+p exec rofi -show drun -theme $HOME/.config/rofi/launcher.rasi
 bindsym Super_R exec swaylock -f
 bindsym Print exec grim -g "$(slurp)" - | tee ~/Imagens/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy && notify-send "Print!"
 exec mako

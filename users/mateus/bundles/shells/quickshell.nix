@@ -1,14 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
-options.my.quickshell = {
-shell.enable = lib.mkEnableOption "Enable Quickshell UI";
-devmode.enable = lib.mkEnableOption "Ferramentas de Desenvolvimento para a Quickshell";
-};
+options.my.quickshell.enable = lib.mkEnableOption "Bundle com configurações e pacotes para o Quickshell";
 
-config = lib.mkMerge [
-
-(lib.mkIf config.my.quickshell.shell.enable {
+config = lib.mkIf config.my.quickshell.enable {
 
 fonts.packages = with pkgs; [
 monaspace
@@ -69,26 +64,5 @@ Restart = "on-failure";
 KillMode = "process";
 };
 };
-})
-
-(lib.mkIf config.my.quickshell.devmode.enable {
-
-environment.systemPackages = with pkgs; [
-qt6.qtwayland
-
-(symlinkJoin {
-name = "qmllint-wrapped";
-paths = [ qt6.qtdeclarative ];
-nativeBuildInputs = [ makeWrapper ];
-postBuild = ''
-wrapProgram $out/bin/qmllint \
---add-flags "-I ${pkgs.qt6.qtdeclarative}/lib/qt-6/qml" \
---add-flags "-I ${pkgs.qt6.qtbase}/lib/qt-6/qml" \
---add-flags "-I ${pkgs.quickshell}/lib/qt-6/qml"
-'';
-})
-];
-})
-
-];
+};
 }

@@ -65,7 +65,7 @@ alias ngc='sudo nix-collect-garbage'
 alias ngcall='sudo nix-collect-garbage -d'
 alias nopt='sudo nix-store --optimise'
 
-alias qsbin='quickshell -p "$HOME"/Repos/NixOS/quickshell/shell/shell.qml';
+alias qsbin='quickshell -p "$HOME"/Repos/NixOS/users/mateus/home/.config/quickshell/';
 alias qsstart='systemctl start --user quickshell.service';
 alias qsstatus='systemctl status --user  quickshell.service';
 alias qsrestart='systemctl restart --user quickshell.service';
