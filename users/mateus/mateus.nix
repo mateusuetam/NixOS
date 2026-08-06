@@ -26,8 +26,8 @@ quickshell.enable = false;
 quickshelldev.enable = false;
 shellminimal.enable = false;
 
-browser.enable = true;
 course.enable = true;
+firefox.enable = true;
 fonts.enable = true;
 neovim.enable = false;
 tools.enable = true;

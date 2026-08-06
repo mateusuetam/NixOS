@@ -59,13 +59,13 @@ alias '..'='cd ..'
 alias start='niri-session'
 alias rmcache='rm -rf "$HOME"/.cache/*'
 
-alias nrebuild='sudo nixos-rebuild switch --flake . --show-trace'
-alias nupdate='nix flake update nixpkgs'
+alias nrebuild='sudo nixos-rebuild switch --flake "$HOME"/Repos/System#pc --show-trace'
+alias nupdate='nix flake update --flake "$HOME"/Repos/System'
 alias ngc='sudo nix-collect-garbage'
 alias ngcall='sudo nix-collect-garbage -d'
 alias nopt='sudo nix-store --optimise'
 
-alias qsbin='quickshell -p "$HOME"/Repos/NixOS/users/mateus/home/.config/quickshell/';
+alias qsbin='quickshell -p "$HOME"/Repos/System/users/mateus/home/.config/quickshell/';
 alias qsstart='systemctl start --user quickshell.service';
 alias qsstatus='systemctl status --user  quickshell.service';
 alias qsrestart='systemctl restart --user quickshell.service';

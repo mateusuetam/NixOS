@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
-options.my.browser.enable = lib.mkEnableOption "Bundle do Firefox";
+options.my.firefox.enable = lib.mkEnableOption "Bundle do Firefox";
 
-config = lib.mkIf config.my.browser.enable {
+config = lib.mkIf config.my.firefox.enable {
 programs.firefox = {
 enable = true;
 
