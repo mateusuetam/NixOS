@@ -1,5 +1,5 @@
 include /etc/sway/config.d/*
-set $fg #bdae93
+set $fg #83a598
 set $unfocused #665c54
 set $urgent #cc241d
 output HDMI-A-1 {
@@ -28,8 +28,6 @@ gaps inner 10
 gaps outer 10
 default_border pixel 2
 default_floating_border pixel 2
-smart_gaps true
-smart_borders true
 client.focused $fg $fg $fg $fg
 client.focused_inactive $unfocused $unfocused $unfocused $unfocused
 client.unfocused $unfocused $unfocused $unfocused $unfocused

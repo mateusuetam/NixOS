@@ -1,41 +1,99 @@
-@define-color bg        #282828;
-@define-color bg-soft   #3c3836;
-@define-color fg        #ebdbb2;
-@define-color border    #3c3836;
-@define-color aqua      #8ec07c;
-@define-color blue      #83a598;
-@define-color green     #b8bb26;
-@define-color yellow    #fabd2f;
-@define-color orange    #fe8019;
-@define-color red       #fb4934;
+@define-color fg #ebdbb2;
+@define-color bg #282828;
+@define-color bg-soft #3c3836;
+@define-color bg-alpha rgba(40, 40, 40, 0.5);
+@define-color purple #b16286;
+@define-color blue #458588;
+@define-color aqua #689d6a;
+@define-color green #98971a;
+@define-color yellow #d79921;
+@define-color orange #d65d0e;
+@define-color red #cc241d;
+@define-color border #3c3836;
 
-* {
-all: unset;
-font-family: "JetBrainsMono Nerd Font";
-font-size: 15px;
-}
+* { all: unset; }
 
-#waybar>box {
-background-color: @bg;
-border-bottom: 1px solid @border;
-}
+#waybar > box { background-color: @bg-alpha; }
 
 .modules-left > widget > *,
 .modules-center > widget > *,
 .modules-right > widget > * {
-color: @fg;
-padding: 5px 15px;
+font-family: "JetBrainsMono Nerd Font";
+font-size: 14px;
+padding: 0 12px;
 }
 
-#workspaces {
+#custom-arrow_workspaces_mpris,
+#custom-arrow_mpris_bg,
+#custom-arrow_bg_tray,
+#custom-arrow_idle_cliphist,
+#custom-arrow_bluetooth_network,
+#custom-arrow_wireplumber_backlight,
+#custom-arrow_battery_clock,
+#custom-arrow_clock_menu {
+font-size: 22px;
 padding: 0;
 }
 
-#workspaces button {
-color: @fg;
-margin: 1px;
-min-width: 55px;
-}
+#workspaces { background-color: @bg-soft; padding: 0; }
+#workspaces button { color: @fg; padding: 0 10px; }
+#workspaces button:hover,
+#workspaces button.focused,
+#workspaces button.active { color: @yellow; }
+#workspaces button.urgent { color: @red; }
+
+#custom-arrow_workspaces_mpris { color: @bg-soft; background-color: @purple; }
+
+#mpris { background-color: @purple; color: @bg; }
+#mpris:hover { color: @fg; }
+
+#custom-arrow_mpris_bg { color: @purple; }
+
+#custom-arrow_bg_tray { color: @blue; }
+
+#tray,
+#idle_inhibitor { background-color: @blue; color: @bg; }
+#idle_inhibitor:hover { color: @fg; }
+
+#custom-arrow_idle_cliphist { color: @aqua; background-color: @blue; }
+
+#custom-cliphist,
+#bluetooth { background-color: @aqua; color: @bg; }
+#custom-cliphist:hover,
+#bluetooth:hover,
+#bluetooth.on:hover,
+#bluetooth.connected:hover { color: @fg; }
+#bluetooth.on { color: @bg; }
+#bluetooth.connected { color: @bg-soft; }
+
+#custom-arrow_bluetooth_network { color: @green; background-color: @aqua; }
+
+#network,
+#wireplumber { background-color: @green; color: @bg; }
+#network:hover,
+#wireplumber:hover { color: @fg; }
+#network.disconnected { color: @red; }
+
+#custom-arrow_wireplumber_backlight { color: @yellow; background-color: @green; }
+
+#backlight,
+#battery { background-color: @yellow; color: @bg; }
+#backlight:hover,
+#battery:hover,
+#battery.charging:hover,
+#battery.warning:hover { color: @fg; }
+#battery.charging { color: @bg-soft; }
+#battery.warning:not(.charging) { color: @orange; }
+
+#custom-arrow_battery_clock { color: @orange; background-color: @yellow; }
+
+#clock { background-color: @orange; color: @bg; }
+#clock:hover { color: @fg; }
+
+#custom-arrow_clock_menu { color: @red; background-color: @orange; }
+
+#custom-menu { background-color: @red; color: @bg; }
+#custom-menu:hover { color: @fg; }
 
 menu,
 tooltip label {
@@ -45,32 +103,5 @@ border: 1px solid @border;
 padding: 10px;
 }
 
-menu menuitem {
-padding: 5px;
-}
-
-#workspaces button:hover,
-#workspaces button.focused,
-#workspaces button.active,
-#mpris:hover,
-#clock:hover,
-#tray > *:hover,
-#idle_inhibitor:hover,
-#custom-cliphist:hover,
-#bluetooth:hover,
-#network:hover,
-#wireplumber:hover,
-#backlight:hover,
-#battery:hover,
-#custom-menu:hover,
-menu menuitem:hover {
-background-color: @bg-soft;
-color: @yellow;
-}
-
-#workspaces button.urgent {background-color: @red;}
-#bluetooth.on {color: @blue;}
-#bluetooth.connected {color: @aqua;}
-#network.disconnected {color: @red;}
-#battery.charging {color: @green;}
-#battery.warning:not(.charging) {color: @orange;}
+menu menuitem { padding: 5px; }
+menu menuitem:hover { color: @yellow; }
