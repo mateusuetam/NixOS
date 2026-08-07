@@ -18,18 +18,19 @@ extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
 };
 
 my = {
-gnome.enable = true;
+gnome.enable = false;
+kde.enable = false;
 niri.enable = false;
-sway.enable = false;
+sway.enable = true;
 
 quickshell.enable = false;
 quickshelldev.enable = false;
-shellminimal.enable = false;
+shellminimal.enable = true;
 
 course.enable = true;
 firefox.enable = true;
 fonts.enable = true;
-neovim.enable = false;
+neovim.enable = true;
 tools.enable = true;
 
 homemanager = {
