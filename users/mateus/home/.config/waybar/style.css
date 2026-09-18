@@ -1,0 +1,18 @@
+@define-color fg #ebdbb2;
+@define-color bg #1d2021;
+@define-color highlight #d79921;
+@define-color alert #cc241d;
+
+* {all: unset;}
+
+#waybar>box {background-color: @bg;}
+
+#mpris, #workspaces button, .modules-right>widget>* {font-family: "Noto Sans"; font-size: 14px; color: @fg; padding: 4px 8px;}
+
+menu, tooltip {background-color: @bg; border: 2px solid @highlight}
+menuitem, tooltip label {color: @fg; margin: 4px 8px 4px 8px;}
+
+#workspaces button:hover, #workspaces button.focused, #workspaces button.active,
+#mpris:hover, .modules-right>widget>*:hover, menu menuitem:hover {color: @highlight;}
+
+#workspaces button.urgent {color: @alert;}
