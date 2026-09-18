@@ -1,0 +1,169 @@
+{
+"modules-left": [
+"sway/workspaces",
+"niri/workspaces",
+"mpris"
+],
+
+"modules-right": [
+"tray",
+"idle_inhibitor",
+"custom/cliphist",
+"bluetooth",
+"network",
+"wireplumber#source",
+"wireplumber#sink",
+"backlight",
+"battery",
+"clock"
+],
+
+"sway/workspaces": {
+"all-outputs": true,
+"format": "{name}",
+"interval": "once"
+},
+
+"niri/workspaces": {
+"format": "{icon}",
+"format-icons": {
+"active": "",
+"default": ""
+},
+"interval": "once"
+},
+
+"mpris": {
+"format": "{status_icon} {artist} - {title}",
+"format-paused": "{status_icon} {artist} - {title}",
+"status-icons": {
+"paused": "󰐊",
+"playing": "󰏤",
+"stopped": "󰓛"
+},
+"max-length": 40,
+"tooltip": false,
+"interval": "once"
+},
+
+"tray": {
+"icon-size": 18,
+"spacing": 15,
+"show-passive-items": true,
+"interval": "once"
+},
+
+"idle_inhibitor": {
+"format": "{icon}",
+"format-icons": {
+"activated": "󰅶",
+"deactivated": "󰾪"
+},
+"timeout": 720,
+"tooltip": false,
+"interval": "once"
+},
+
+"custom/cliphist": {
+"format": "󰆏",
+"tooltip": false,
+"on-click": "foot -e sh -c 'cliphist list; printf \"\\nPressione ENTER para fechar...\"; read'",
+"on-click-right": "cliphist wipe && notify-send 'Cliphist' 'Histórico limpo!'",
+"interval": "once"
+},
+
+"bluetooth": {
+"format": "󰂲",
+"format-on": "{icon}",
+"format-off": "{icon}",
+"format-connected": "{icon}",
+"format-connected-battery": "󰂱",
+"format-icons": {
+"on": "󰂯",
+"off": "󰂲",
+"connected": "󰂱"
+},
+"on-click": "foot -e bluetoothctl",
+"on-click-right": "rfkill toggle bluetooth",
+"tooltip-format": "{device_alias} ({device_battery_percentage}%)",
+"interval": 60
+},
+
+"network": {
+"format-wifi": "󰤢",
+"format-ethernet": "󰈀",
+"format-disconnected": "󰤠",
+"format-disabled": "󰤭",
+"tooltip-format": "{essid}",
+"on-click": "foot -e sh -c 'nmcli device show; printf \"\\nPressione ENTER para fechar...\"; read'",
+"on-click-right": "rfkill toggle wlan",
+"interval": "once"
+},
+
+"wireplumber#source": {
+"node-type": "Audio/Source",
+"format": " {volume}%",
+"format-muted": "",
+"on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+"on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 1%+",
+"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-",
+"interval": "once"
+},
+
+"wireplumber#sink": {
+"node-type": "Audio/Sink",
+"format": "{icon} {volume}%",
+"format-muted": "",
+"format-icons": ["","",""],
+"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+"on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+",
+"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+"interval": "once"
+},
+
+"backlight": {
+"format": "{icon} {percent}%",
+"format-icons": ["","󰃜","󰃛","󰃞","󰃝","󰃟","󰃠"],
+"tooltip": false,
+"on-click": "gammastep -O 2000",
+"on-click-right": "pkill gammastep",
+"interval": "once"
+},
+
+"battery": {
+"states": {
+"good": 80,
+"warning": 29,
+"critical": 19
+},
+"format": "{icon} {capacity}%",
+"format-full": " {capacity}%",
+"format-charging": " {capacity}%",
+"format-plugged": " {capacity}%",
+"format-icons": ["","","","",""],
+"tooltip": false,
+"interval": 60
+},
+
+"clock": {
+"format": "{:%H:%M}",
+"format-alt": "{:L%A, %e de %b - %H:%M}",
+"locale": "pt_BR.UTF-8",
+"tooltip": true,
+"tooltip-format": "<tt><span size='11pt'>{calendar}</span></tt>",
+"calendar": {
+"mode": "month",
+"mode-mon-col": 1,
+"weeks-pos": "right",
+"on-scroll": 1,
+"format": {
+"months": "<span color='#ff6699'><b>{}</b></span>",
+"days": "<span color='#2ecc71'><b>{}</b></span>",
+"weeks": "<span color='#9b59b6'><b>W{}</b></span>",
+"weekdays": "<span color='#f1c40f'><b>{}</b></span>",
+"today": "<span color='#e74c3c'><b><u>{}</u></b></span>"
+}
+},
+"interval": 60
+}
+}

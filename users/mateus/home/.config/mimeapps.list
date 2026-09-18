@@ -1,0 +1,15 @@
+[Default Applications]
+text/plain=nvim.desktop
+application/pdf=firefox.desktop
+image/jpeg=mpv.desktop
+image/png=mpv.desktop
+image/gif=mpv.desktop
+image/webp=mpv.desktop
+image/bmp=mpv.desktop
+image/tiff=mpv.desktop
+video/mp4=mpv.desktop
+video/x-matroska=mpv.desktop
+video/webm=mpv.desktop
+video/quicktime=mpv.desktop
+video/x-flv=mpv.desktop
+video/x-msvideo=mpv.desktop
