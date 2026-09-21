@@ -46,9 +46,9 @@ layout {
 background-color "transparent"
 border {
 width 2
-active-color "#d79921"
-inactive-color "#665c54"
-urgent-color "#cc241d"
+active-color "#ca6bac"
+inactive-color "#2d2424"
+urgent-color "#e3556f"
 }
 gaps 10
 struts {

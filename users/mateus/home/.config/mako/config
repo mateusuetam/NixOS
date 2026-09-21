@@ -8,18 +8,18 @@ width=300
 height=110
 
 font=Noto Sans 12
-text-color=#ebdbb2
-background-color=#1d2021
-border-color=#d79921
+text-color=#ffe9c7
+background-color=#1a1515
+border-color=#ca6bac
 border-size=2
 border-radius=0
 padding=10
 margin=5
 
 [urgency=low]
-border-color=#b8bb26
+border-color=#9894b3
 [urgency=normal]
-border-color=#d79921
+border-color=#ca6bac
 [urgency=high]
-border-color=#fb4934
+border-color=#e3556f
 default-timeout=0

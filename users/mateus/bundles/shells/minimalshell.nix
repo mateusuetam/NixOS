@@ -59,7 +59,7 @@ description = "Swaybg service";
 partOf = [ "minimalshell.target" ];
 after = [ "graphical-session.target" ];
 serviceConfig = {
-ExecStart = "${pkgs.swaybg}/bin/swaybg -i /home/mateus/Imagens/cargo.jpg -m center";
+ExecStart = "${pkgs.swaybg}/bin/swaybg -i /home/mateus/Imagens/FullMoonCastle.png -m fill";
 Restart = "on-failure";
 };
 };
@@ -84,6 +84,7 @@ bluez
 cliphist
 foot
 gammastep
+less
 libnotify
 networkmanager
 procps
