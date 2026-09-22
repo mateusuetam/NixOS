@@ -1,7 +1,5 @@
 {
 imports = [
-./environments/gnome.nix
-./environments/kde.nix
 ./environments/niri.nix
 ./environments/sway.nix
 ./shells/minimalshell.nix

@@ -18,8 +18,6 @@ extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
 };
 
 my = {
-gnome.enable = false;
-kde.enable = false;
 niri.enable = false;
 sway.enable = true;
 

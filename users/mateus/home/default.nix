@@ -36,13 +36,13 @@ target = "${homeDir}/.bashrc";
 }
 
 {
-bundles = [ "niri" "sway" ];
+bundles = [];
 source = ./.config/mimeapps.list;
 target = "${configDir}/mimeapps.list";
 }
 
 {
-bundles = [ "niri" "sway" ];
+bundles = [];
 source = ./.icons/default/index.theme;
 target = "${homeDir}/.icons/default/index.theme";
 }
@@ -57,6 +57,12 @@ target = "${configDir}/niri/config.kdl";
 bundles = [ "sway" ];
 source = ./.config/sway/config;
 target = "${configDir}/sway/config";
+}
+
+{
+bundles = [ "minimalshell" ];
+source = ./.config/foot/foot.ini;
+target = "${configDir}/foot/foot.ini";
 }
 
 {
@@ -81,12 +87,6 @@ target = "${configDir}/waybar/config.jsonc";
 bundles = [ "minimalshell" ];
 source = ./.config/waybar/style.css;
 target = "${configDir}/waybar/style.css";
-}
-
-{
-bundles = [ "minimalshell" ];
-source = ./.config/foot/foot.ini;
-target = "${configDir}/foot/foot.ini";
 }
 ];
 
