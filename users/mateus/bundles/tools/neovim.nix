@@ -18,9 +18,6 @@ EOF
 '';
 
 packages.myVimPackage = with pkgs.vimPlugins; {
-start = [
-alpha-nvim
-];
 opt = [
 plenary-nvim
 telescope-nvim
