@@ -1,7 +1,7 @@
 include /etc/sway/config.d/*
-set $fg #ca6bac
-set $unfocused #2d2424
-set $urgent #e3556f
+set $fg #989F56
+set $unfocused #221E1E
+set $urgent #CA3F3F
 output HDMI-A-1 {
 mode 1920x1080@100.000Hz
 subpixel rgb
@@ -25,8 +25,8 @@ pointer_accel 0
 tap enabled
 natural_scroll enabled
 }
-gaps inner 10
-gaps outer 10
+gaps inner 20
+gaps outer 20
 smart_gaps true
 default_border pixel 2
 default_floating_border pixel 2

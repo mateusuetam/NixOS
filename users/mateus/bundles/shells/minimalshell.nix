@@ -59,7 +59,7 @@ description = "Swaybg service";
 partOf = [ "minimalshell.target" ];
 after = [ "graphical-session.target" ];
 serviceConfig = {
-ExecStart = "${pkgs.swaybg}/bin/swaybg -i /home/mateus/Imagens/FullMoonCastle.png -m fill";
+ExecStart = "${pkgs.swaybg}/bin/swaybg -i /home/mateus/Imagens/TheWalk.png -m fill";
 Restart = "on-failure";
 };
 };

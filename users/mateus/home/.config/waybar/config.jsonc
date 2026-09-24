@@ -19,17 +19,12 @@
 ],
 
 "sway/workspaces": {
-"all-outputs": true,
-"format": "{name}",
+"format": "{index}",
 "interval": "once"
 },
 
 "niri/workspaces": {
-"format": "{icon}",
-"format-icons": {
-"active": "",
-"default": ""
-},
+"format": "{index}",
 "interval": "once"
 },
 
@@ -48,7 +43,7 @@
 
 "tray": {
 "icon-size": 14,
-"spacing": 16,
+"spacing": 20,
 "show-passive-items": true,
 "interval": "once"
 },
@@ -152,11 +147,11 @@
 "weeks-pos": "right",
 "on-scroll": 1,
 "format": {
-"weekdays": "<span color='#949f6b'><b>{}</b></span>",
-"today": "<span color='#ca6bac'><b><u>{}</u></b></span>",
-"days": "<span color='#ffe9c7'><b>{}</b></span>",
-"weeks": "<span color='#f07942'><b>W{}</b></span>",
-"months": "<span color='#9894b3'><b>{}</b></span>"
+"weekdays": "<span color='#629386'><b>{}</b></span>",
+"today": "<span color='#989F56'><b><u>{}</u></b></span>",
+"days": "<span color='#F4E6D2'><b>{}</b></span>",
+"weeks": "<span color='#E46A3A'><b>W{}</b></span>",
+"months": "<span color='#517894'><b>{}</b></span>"
 }
 },
 "interval": 60

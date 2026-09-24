@@ -1,17 +1,16 @@
-@define-color fg #ffe9c7;
-@define-color bg #1a1515;
-@define-color highlight #ca6bac;
-@define-color alert #e3556f;
+@define-color fg #F4E6D2;
+@define-color bg #181515;
+@define-color highlight #989F56;
+@define-color alert #CA3F3F;
 
 * {all: unset;}
 
-#waybar>box {background-color: @bg; border-bottom: 1px solid @highlight}
+#waybar>box {background-color: @bg; border-bottom: 2px solid @highlight;}
 
-#mpris, #workspaces button, .modules-right>widget>*, menuitem, tooltip label {font-family: "Noto Sans"; font-size: 14px; color: @fg; padding: 4px 8px;}
+#mpris, #workspaces button, .modules-right>widget>*, menuitem, tooltip label {font-family: "Noto Sans"; font-size: 14px; color: @fg; margin: 5px 10px;}
 
-menu, tooltip {background-color: @bg; border: 1px solid @highlight}
+menu, tooltip decoration {background-color: @bg; border: 2px solid @highlight;}
 
-#workspaces button:hover, #workspaces button.focused, #workspaces button.active,
-#mpris:hover, .modules-right>widget>*:hover, menu menuitem:hover {color: @highlight;}
+#workspaces button:hover, #workspaces button.focused, #workspaces button.active, #mpris:hover, .modules-right>widget>*:hover, menu menuitem:hover {color: @highlight;}
 
 #workspaces button.urgent {color: @alert;}

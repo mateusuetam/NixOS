@@ -46,16 +46,16 @@ layout {
 background-color "transparent"
 border {
 width 2
-active-color "#ca6bac"
-inactive-color "#2d2424"
-urgent-color "#e3556f"
+active-color "#989F56"
+inactive-color "#221E1E"
+urgent-color "#CA3F3F"
 }
-gaps 10
+gaps 20
 struts {
-top 10
-right 10
-bottom 10
-left 10
+top 20
+right 20
+bottom 20
+left 20
 }
 focus-ring {
 off
