@@ -4,7 +4,6 @@
 imports = [
 ./bundles/apps/opensource-apps.nix
 ./bundles/apps/proprietary-apps.nix
-./bundles/development/course.nix
 ./bundles/environment/niri.nix
 ./bundles/environment/sway.nix
 ./bundles/utilities/desktoputils.nix
@@ -26,8 +25,6 @@ extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
 my = {
 opensource-apps.enable = true;
 proprietary-apps.enable = true;
-
-course.enable = true;
 
 niri.enable = false;
 quickshell = {
