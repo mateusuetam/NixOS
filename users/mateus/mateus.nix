@@ -37,7 +37,7 @@ sway.enable = true;
 minimalshell = {
 enable = true;
 user = "mateus";
-wallpaper = "/home/mateus/Imagens/TheWalk.png";
+wallpaper = "/home/mateus/Imagens/wallpaper";
 swayidle.timeout = 600;
 };
 
