@@ -2,8 +2,16 @@
 
 {
 imports = [
-./bundles
-./home
+./bundles/apps/opensource-apps.nix
+./bundles/apps/proprietary-apps.nix
+./bundles/environments/niri.nix
+./bundles/environments/sway.nix
+./bundles/shells/minimalshell.nix
+./bundles/shells/quickshell.nix
+./bundles/utilities/desktoputils.nix
+./bundles/utilities/fonts.nix
+./bundles/utilities/neovim.nix
+./home/homemanager.nix
 ];
 
 options.my.users.mateus = {
@@ -18,21 +26,27 @@ extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
 };
 
 my = {
-gnome.enable = false;
-kde.enable = false;
+opensource-apps.enable = true;
+proprietary-apps.enable = true;
+
 niri.enable = true;
+quickshell = {
+enable = true;
+user = "mateus";
+dev.enable = true;
+};
+
 sway.enable = false;
+minimalshell = {
+enable = false;
+user = "mateus";
+wallpaper = "/home/mateus/Imagens/wallpaper";
+swayidle.timeout = 600;
+};
 
-minimalshell.enable = false;
-quickshell.enable = true;
-quickshelldev.enable = true;
-shellutils.enable = true;
-
-course.enable = true;
-firefox.enable = true;
+desktoputils.enable = true;
 fonts.enable = true;
 neovim.enable = true;
-tools.enable = true;
 
 homemanager = {
 enable = true;

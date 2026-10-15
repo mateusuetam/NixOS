@@ -1,10 +1,9 @@
 include /etc/sway/config.d/*
-set $fg #d79921
-set $unfocused #665c54
-set $urgent #cc241d
+set $fg #989F56
+set $unfocused #221E1E
+set $urgent #CA3F3F
 output HDMI-A-1 {
-mode 1920x1080@100.000Hz
-bg #282828 solid_color
+mode 1920x1080@60.000Hz
 subpixel rgb
 }
 output eDP-1 {
@@ -26,8 +25,8 @@ pointer_accel 0
 tap enabled
 natural_scroll enabled
 }
-gaps inner 5
-gaps outer 5
+gaps inner 10
+gaps outer 10
 smart_gaps on
 default_border pixel 2
 default_floating_border pixel 2
@@ -75,9 +74,4 @@ bindsym Mod4+e exec foot -e nvim
 bindsym Mod4+b exec firefox
 bindsym Super_R exec swaylock -f
 bindsym Print exec grim -g "$(slurp)" - | tee ~/Imagens/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy && notify-send "Print!"
-exec mako
-exec wl-paste --watch cliphist store
-exec swayidle -w timeout 600 'swaylock -f' timeout 610 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' before-sleep 'swaylock -f'
-bar {
-swaybar_command waybar
-}
+bindsym Ctrl+Alt+Delete exec swaymsg exit

@@ -13,6 +13,8 @@ extraPackages = [ ];
 xwayland.enable = true;
 };
 
+xdg.portal.enable = true;
+
 users.users.mateus.packages = with pkgs; [
 grim
 slurp

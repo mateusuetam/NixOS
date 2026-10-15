@@ -1,12 +1,14 @@
 {
 "modules-left": [
 "sway/workspaces",
+"niri/workspaces",
 "mpris"
 ],
 
 "modules-right": [
 "tray",
 "idle_inhibitor",
+"custom/wallpaper",
 "custom/cliphist",
 "bluetooth",
 "network",
@@ -18,27 +20,31 @@
 ],
 
 "sway/workspaces": {
-"all-outputs": true,
-"format": "{name}",
+"format": "{index}",
+"interval": "once"
+},
+
+"niri/workspaces": {
+"format": "{index}",
 "interval": "once"
 },
 
 "mpris": {
-"format": "{status_icon}  {artist} - {title}",
-"format-paused": "{status_icon}  {artist} - {title}",
+"format": "{status_icon} {artist} - {title}",
+"format-paused": "{status_icon} {artist} - {title}",
 "status-icons": {
 "paused": "󰐊",
 "playing": "󰏤",
 "stopped": "󰓛"
 },
-"max-length": 40,
+"max-length": 100,
 "tooltip": false,
 "interval": "once"
 },
 
 "tray": {
-"icon-size": 18,
-"spacing": 15,
+"icon-size": 14,
+"spacing": 20,
 "show-passive-items": true,
 "interval": "once"
 },
@@ -54,25 +60,26 @@
 "interval": "once"
 },
 
-"custom/cliphist": {
-"format": "󰆏",
+"custom/wallpaper": {
+"format": "󰸉",
+"on-click": "foot -e sh -c 'while :; do printf \"\\nCaminho do wallpaper ('q' para sair): \"; IFS= read -r input || exit 0; [ \"$input\" = q ] && exit 0; case \"$input\" in /*) ;; *) printf \"Use um caminho válido exemplo: /home/user/Imagens/wallpaper.png\\n\"; continue ;; esac; wallpaper=$(realpath -e -- \"$input\" 2>/dev/null) || { printf \"Arquivo não encontrado.\\n\"; continue; }; [ -f \"$wallpaper\" ] || { printf \"O caminho não é um arquivo regular.\\n\"; continue; }; if ln -sfnT -- \"$wallpaper\" /home/mateus/Imagens/wallpaper && systemctl --user restart swaybg.service; then printf \"Wallpaper atualizado.\\n\"; exit 0; else printf \"Falha ao atualizar o wallpaper.\\n\"; fi; done'",
 "tooltip": false,
+"interval": "once"
+},
+
+"custom/cliphist": {
+"format": "󱛢",
 "on-click": "foot -e sh -c 'cliphist list; printf \"\\nPressione ENTER para fechar...\"; read'",
 "on-click-right": "cliphist wipe && notify-send 'Cliphist' 'Histórico limpo!'",
+"tooltip": false,
 "interval": "once"
 },
 
 "bluetooth": {
-"format": "󰂲",
-"format-on": "{icon}",
-"format-off": "{icon}",
-"format-connected": "{icon}",
-"format-connected-battery": "󰂱",
-"format-icons": {
-"on": "󰂯",
-"off": "󰂲",
-"connected": "󰂱"
-},
+"format-on": "󰂯",
+"format-off": "󰂲",
+"format-disabled": "󰂲",
+"format-connected": "󰂰",
 "on-click": "foot -e bluetoothctl",
 "on-click-right": "rfkill toggle bluetooth",
 "tooltip-format": "{device_alias} ({device_battery_percentage}%)",
@@ -80,43 +87,45 @@
 },
 
 "network": {
-"format-wifi": "󰤢",
-"format-ethernet": "󰈀",
+"format-wifi": "󰤥",
+"format-ethernet": "󰈁",
 "format-disconnected": "󰤠",
 "format-disabled": "󰤭",
-"tooltip-format": "{essid}",
 "on-click": "foot -e sh -c 'nmcli device show; printf \"\\nPressione ENTER para fechar...\"; read'",
 "on-click-right": "rfkill toggle wlan",
+"tooltip-format": "{essid}",
 "interval": "once"
 },
 
 "wireplumber#source": {
 "node-type": "Audio/Source",
-"format": " {volume}%",
+"format": " {volume}%",
 "format-muted": "",
 "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
 "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 1%+",
 "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-",
+"tooltip-format": "{node_name}",
 "interval": "once"
 },
 
 "wireplumber#sink": {
 "node-type": "Audio/Sink",
-"format": "{icon}  {volume}%",
+"format": "{icon} {volume}%",
 "format-muted": "",
-"format-icons": ["","",""],
+"format-icons": ["","","",""],
 "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+",
 "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+"tooltip-format": "{node_name}",
 "interval": "once"
 },
 
 "backlight": {
-"format": "{icon}  {percent}%",
-"format-icons": ["","󰃜","󰃛","󰃞","󰃝","󰃟","󰃠"],
-"tooltip": false,
+"format": "{icon} {percent}%",
+"format-icons": ["󰛩","󱩎","󱩏","󱩐","󱩑","󱩒","󱩓","󱩔","󱩕","󱩖","󰛨"],
 "on-click": "gammastep -O 2000",
 "on-click-right": "pkill gammastep",
+"tooltip": false,
 "interval": "once"
 },
 
@@ -126,11 +135,11 @@
 "warning": 29,
 "critical": 19
 },
-"format": "{icon}  {capacity}%",
-"format-full": " {capacity}%",
-"format-charging": " {capacity}%",
-"format-plugged": " {capacity}%",
-"format-icons": ["","","","",""],
+"format": "{icon} {capacity}%",
+"format-full": "󰂄 {capacity}%",
+"format-charging": "󰂄 {capacity}%",
+"format-plugged": "󰂄 {capacity}%",
+"format-icons": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
 "tooltip": false,
 "interval": 60
 },
@@ -139,7 +148,6 @@
 "format": "{:%H:%M}",
 "format-alt": "{:L%A, %e de %b - %H:%M}",
 "locale": "pt_BR.UTF-8",
-"tooltip": true,
 "tooltip-format": "<tt><span size='11pt'>{calendar}</span></tt>",
 "calendar": {
 "mode": "month",
@@ -147,11 +155,11 @@
 "weeks-pos": "right",
 "on-scroll": 1,
 "format": {
-"months": "<span color='#ff6699'><b>{}</b></span>",
-"days": "<span color='#2ecc71'><b>{}</b></span>",
-"weeks": "<span color='#9b59b6'><b>W{}</b></span>",
-"weekdays": "<span color='#f1c40f'><b>{}</b></span>",
-"today": "<span color='#e74c3c'><b><u>{}</u></b></span>"
+"weekdays": "<span color='#629386'><b>{}</b></span>",
+"today": "<span color='#989F56'><b><u>{}</u></b></span>",
+"days": "<span color='#F4E6D2'><b>{}</b></span>",
+"weeks": "<span color='#E46A3A'><b>W{}</b></span>",
+"months": "<span color='#517894'><b>{}</b></span>"
 }
 },
 "interval": 60
