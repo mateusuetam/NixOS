@@ -19,15 +19,15 @@ kernelParams = [
 "module_blacklist=watchdog"
 ];
 kernel.sysctl = {
-"net.ipv4.conf.all.accept_redirects" = 0;
-"net.ipv6.conf.all.accept_redirects" = 0;
+"net.ipv4.conf.*.accept_redirects" = 0;
+"net.ipv6.conf.*.accept_redirects" = 0;
 "net.ipv4.conf.default.accept_redirects" = 0;
 "net.ipv6.conf.default.accept_redirects" = 0;
-"net.ipv4.conf.all.accept_source_route" = 0;
-"net.ipv6.conf.all.accept_source_route" = 0;
+"net.ipv4.conf.*.accept_source_route" = 0;
+"net.ipv6.conf.*.accept_source_route" = -1;
 "net.ipv4.conf.default.accept_source_route" = 0;
-"net.ipv6.conf.default.accept_source_route" = 0;
-"net.ipv4.conf.all.send_redirects" = 0;
+"net.ipv6.conf.default.accept_source_route" = -1;
+"net.ipv4.conf.*.send_redirects" = 0;
 "net.ipv4.conf.default.send_redirects" = 0;
 "net.ipv4.tcp_syncookies" = 1;
 "net.ipv4.tcp_rfc1337" = 1;
@@ -77,13 +77,8 @@ time.timeZone = "America/Recife";
 nix = {
 settings = {
 auto-optimise-store = true;
-allowed-users = [
-"@wheel"
-];
-experimental-features = [
-"nix-command"
-"flakes"
-];
+allowed-users = [ "@wheel" ];
+experimental-features = [ "nix-command" "flakes" ];
 };
 gc = {
 automatic = true;
@@ -114,8 +109,8 @@ enable = true;
 percentageLow = 20;
 percentageCritical = 15;
 percentageAction = 10;
-criticalPowerAction = "Suspend";
 allowRiskyCriticalPowerAction = true;
+criticalPowerAction = "Suspend";
 };
 fstrim = {
 enable = true;
@@ -139,6 +134,8 @@ nixos.enable = false;
 };
 
 my.users.mateus.enable = true;
+
+environment.defaultPackages = lib.mkForce [];
 
 system.stateVersion = "26.05";
 }

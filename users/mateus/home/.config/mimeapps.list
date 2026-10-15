@@ -1,5 +1,5 @@
 [Default Applications]
-text/plain=nvim-custom.desktop
+text/plain=nvim.desktop
 application/pdf=firefox.desktop
 image/jpeg=mpv.desktop
 image/png=mpv.desktop

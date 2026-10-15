@@ -27,6 +27,15 @@ COMPREPLY=( $(compgen -c -- "$cur" | sort -u) )
 
 complete -F _run run
 
+lookfor() {
+if [[ -z "$1" ]]; then
+printf 'Comando: lookfor <nome_da_pasta>\n' >&2
+return 1
+fi
+
+sudo find / -type d -iname "$1" 2>/dev/null
+}
+
 ex() {
 [[ -f "$1" ]] || {
 echo "'$1' arquivo inválido."
@@ -56,20 +65,20 @@ alias cp='cp -i'
 alias ls='ls -A1 --color=auto'
 alias grep='grep --color=auto'
 alias '..'='cd ..'
-alias start='niri-session'
 alias rmcache='rm -rf "$HOME"/.cache/*'
 
-alias nrebuild='sudo nixos-rebuild switch --flake "$HOME"/Repos/System#pc --show-trace'
-alias nupdate='nix flake update --flake "$HOME"/Repos/System'
+alias nrebuild='sudo nixos-rebuild switch --flake "$HOME"/Repos/NixOS#pc --show-trace'
+alias nupdate='nix flake update --flake "$HOME"/Repos/NixOS'
 alias ngc='sudo nix-collect-garbage'
 alias ngcall='sudo nix-collect-garbage -d'
 alias nopt='sudo nix-store --optimise'
 
-alias qsbin='quickshell -p "$HOME"/Repos/System/users/mateus/home/.config/quickshell/';
+alias qsbin='quickshell -p "$HOME"/Repos/NixOS/users/mateus/home/.config/quickshell/';
 alias qsstart='systemctl start --user quickshell.service';
-alias qsstatus='systemctl status --user  quickshell.service';
+alias qsstatus='systemctl status --user quickshell.service';
 alias qsrestart='systemctl restart --user quickshell.service';
 alias qsstop='systemctl stop --user quickshell.service';
+alias qslog='journalctl --user -u quickshell.service';
 
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'

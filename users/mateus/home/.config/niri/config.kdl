@@ -1,8 +1,8 @@
 include optional=true "myshell.kdl"
+prefer-no-csd
 hotkey-overlay {
 skip-at-startup
 }
-prefer-no-csd
 overview {
 workspace-shadow {
 off
@@ -14,7 +14,7 @@ off
 }
 }
 output "HDMI-A-1" {
-mode "1920x1080@100.000"
+mode "1920x1080@60.000"
 }
 output "eDP-1" {
 off
@@ -41,39 +41,30 @@ accel-profile "flat"
 focus-follows-mouse max-scroll-amount="0%"
 }
 layout {
-focus-ring {
-off
-}
+background-color "transparent"
 border {
 width 2
 }
-gaps 20
+gaps 10
 struts {
-left 20
-right 20
-top 20
-bottom 20
+top 10
+right 10
+bottom 10
+left 10
 }
-background-color "transparent"
+focus-ring {
+off
+}
 }
 window-rule {
 clip-to-geometry true
 open-maximized true
-}
-window-rule {
-match app-id=".*App.*"
-open-floating true
 }
 layer-rule {
 match namespace="^wallpaper$"
 place-within-backdrop true
 }
 binds {
-Mod+Return { spawn "foot"; }
-Mod+E { spawn "foot" "-e" "nvim"; }
-Mod+B { spawn "firefox"; }
-Mod+P { spawn "quickshell" "ipc" "call" "start_launcher" "open"; }
-Mod+Super_R { spawn "quickshell" "ipc" "call" "lock_manager" "lock"; }
 Mod+F { maximize-column; }
 Mod+M { maximize-window-to-edges; }
 Mod+Shift+F { fullscreen-window; }
@@ -129,6 +120,11 @@ Mod+Minus { set-column-width "-10%"; }
 Mod+Equal { set-column-width "+10%"; }
 Mod+Shift+Minus { set-window-height "-10%"; }
 Mod+Shift+Equal { set-window-height "+10%"; }
+Mod+Return { spawn "foot"; }
+Mod+E { spawn "foot" "-e" "nvim"; }
+Mod+B { spawn "firefox"; }
+Mod+P { spawn "quickshell" "ipc" "call" "start_launcher" "open"; }
+Mod+Super_R { spawn "quickshell" "ipc" "call" "lock_manager" "lock"; }
 Print { screenshot; }
 Ctrl+Alt+Delete { quit; }
 }
