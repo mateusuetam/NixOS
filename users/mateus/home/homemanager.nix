@@ -55,20 +55,8 @@ target = "${homeDir}/.icons/default/index.theme";
 }
 
 {
-bundles = [ "quickshell" ];
-source = ./.config/foot-myshell/foot.ini;
-target = "${configDir}/foot/foot.ini";
-}
-
-{
-bundles = [ "quickshell" ];
-source = ./.config/quickshell;
-target = "${configDir}/quickshell";
-}
-
-{
 bundles = [ "minimalshell" ];
-source = ./.config/foot-minimalshell/foot.ini;
+source = ./.config/foot/foot.ini;
 target = "${configDir}/foot/foot.ini";
 }
 

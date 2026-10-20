@@ -7,7 +7,6 @@ imports = [
 ./bundles/environments/niri.nix
 ./bundles/environments/sway.nix
 ./bundles/shells/minimalshell.nix
-./bundles/shells/quickshell.nix
 ./bundles/utilities/desktoputils.nix
 ./bundles/utilities/fonts.nix
 ./bundles/utilities/neovim.nix
@@ -30,15 +29,10 @@ opensource-apps.enable = true;
 proprietary-apps.enable = true;
 
 niri.enable = true;
-quickshell = {
-enable = true;
-user = "mateus";
-dev.enable = true;
-};
-
 sway.enable = false;
+
 minimalshell = {
-enable = false;
+enable = true;
 user = "mateus";
 wallpaper = "/home/mateus/Imagens/wallpaper";
 swayidle.timeout = 600;

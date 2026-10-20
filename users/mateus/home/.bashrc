@@ -73,12 +73,5 @@ alias ngc='sudo nix-collect-garbage'
 alias ngcall='sudo nix-collect-garbage -d'
 alias nopt='sudo nix-store --optimise'
 
-alias qsbin='quickshell -p "$HOME"/Repos/NixOS/users/mateus/home/.config/quickshell/';
-alias qsstart='systemctl start --user quickshell.service';
-alias qsstatus='systemctl status --user quickshell.service';
-alias qsrestart='systemctl restart --user quickshell.service';
-alias qsstop='systemctl stop --user quickshell.service';
-alias qslog='journalctl --user -u quickshell.service';
-
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'

@@ -1,2 +1,0 @@
-singleton ThemeEngine ThemeEngine.qml
-singleton PopupCoordinator PopupCoordinator.qml

@@ -9,7 +9,7 @@
 
 #mpris, #workspaces button, .modules-right>widget>*, menuitem, tooltip label {font-family: "Noto Sans"; font-size: 14px; color: @fg; margin: 5px 10px;}
 
-menu, tooltip decoration {background-color: @bg;}
+menu, tooltip decoration {background-color: @bg; border: 2px solid @highlight}
 
 #workspaces button:hover, #workspaces button.focused, #workspaces button.active, #mpris:hover, .modules-right>widget>*:hover, menu menuitem:hover {color: @highlight;}
 

@@ -1,7 +1,0 @@
-layout {
-border {
-active-color "#000000"
-inactive-color "#bfbfbf"
-urgent-color "#ffffff"
-}
-}
