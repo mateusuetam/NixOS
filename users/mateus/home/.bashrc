@@ -73,5 +73,10 @@ alias ngc='sudo nix-collect-garbage'
 alias ngcall='sudo nix-collect-garbage -d'
 alias nopt='sudo nix-store --optimise'
 
+alias msstart='systemctl --user start "cliphist.service" "mako.service" "swaybg.service" "swayidle.service" "waybar.service"'
+alias msrestart='systemctl --user restart "cliphist.service" "mako.service" "swaybg.service" "swayidle.service" "waybar.service"'
+alias msstop='systemctl --user stop "cliphist.service" "mako.service" "swaybg.service" "swayidle.service" "waybar.service"'
+alias msstatus='systemctl --user status "cliphist.service" "mako.service" "swaybg.service" "swayidle.service" "waybar.service"'
+
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
