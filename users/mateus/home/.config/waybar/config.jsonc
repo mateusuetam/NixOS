@@ -62,7 +62,7 @@
 
 "custom/wallpaper": {
 "format": "󰸉",
-"on-click": "foot -e sh -c 'while :; do printf \"\\nCaminho do wallpaper ('q' para sair): \"; IFS= read -r input || exit 0; [ \"$input\" = q ] && exit 0; case \"$input\" in /*) ;; *) printf \"Use um caminho válido exemplo: /home/user/Imagens/wallpaper.png\\n\"; continue ;; esac; wallpaper=$(realpath -e -- \"$input\" 2>/dev/null) || { printf \"Arquivo não encontrado.\\n\"; continue; }; [ -f \"$wallpaper\" ] || { printf \"O caminho não é um arquivo regular.\\n\"; continue; }; if ln -sfnT -- \"$wallpaper\" /home/mateus/Imagens/wallpaper && systemctl --user restart swaybg.service; then printf \"Wallpaper atualizado.\\n\"; exit 0; else printf \"Falha ao atualizar o wallpaper.\\n\"; fi; done'",
+"on-click": "foot -e sh -c 'while :; do printf \"\\nCaminho do wallpaper ('q' para sair): \"; IFS= read -r input || exit 0; [ \"$input\" = q ] && exit 0; case \"$input\" in /*) ;; *) printf \"Use um caminho válido, exemplo: %s/Imagens/wallpaper.png\\n\" \"$HOME\"; continue ;; esac; wallpaper=$(realpath -e -- \"$input\" 2>/dev/null) || { printf \"Arquivo não encontrado.\\n\"; continue; }; [ -f \"$wallpaper\" ] || { printf \"O caminho não é um arquivo regular.\\n\"; continue; }; if ln -sfnT -- \"$wallpaper\" \"$HOME/Imagens/.wallpaper\" && systemctl --user restart swaybg.service; then printf \"Wallpaper atualizado.\\n\"; exit 0; else printf \"Falha ao atualizar o wallpaper.\\n\"; fi; done'",
 "tooltip": false,
 "interval": "once"
 },
@@ -121,11 +121,11 @@
 },
 
 "backlight": {
-"format": "{icon} {percent}%",
+"format": "{icon}",
 "format-icons": ["󰛩","󱩎","󱩏","󱩐","󱩑","󱩒","󱩓","󱩔","󱩕","󱩖","󰛨"],
 "on-click": "gammastep -O 2000",
 "on-click-right": "pkill gammastep",
-"tooltip": false,
+"tooltip-format": "{percent}%",
 "interval": "once"
 },
 
@@ -135,12 +135,12 @@
 "warning": 29,
 "critical": 19
 },
-"format": "{icon} {capacity}%",
+"format": "{icon}",
 "format-full": "󰂄 {capacity}%",
-"format-charging": "󰂄 {capacity}%",
-"format-plugged": "󰂄 {capacity}%",
+"format-charging": "󰂄",
+"format-plugged": "󰂄",
 "format-icons": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
-"tooltip": false,
+"tooltip-format": "{capacity}%",
 "interval": 60
 },
 
@@ -155,11 +155,11 @@
 "weeks-pos": "right",
 "on-scroll": 1,
 "format": {
-"weekdays": "<span color='#629386'><b>{}</b></span>",
-"today": "<span color='#989F56'><b><u>{}</u></b></span>",
-"days": "<span color='#F4E6D2'><b>{}</b></span>",
-"weeks": "<span color='#E46A3A'><b>W{}</b></span>",
-"months": "<span color='#517894'><b>{}</b></span>"
+"weekdays": "<span color='#959A6B'><b>{}</b></span>",
+"today": "<span color='#F07342'><b><u>{}</u></b></span>",
+"days": "<span color='#FFE9C7'><b>{}</b></span>",
+"weeks": "<span color='#E39C45'><b>W{}</b></span>",
+"months": "<span color='#768F80'><b>{}</b></span>"
 }
 },
 "interval": 60

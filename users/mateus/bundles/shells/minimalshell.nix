@@ -39,6 +39,12 @@ type = lib.types.ints.positive;
 default = 600;
 description = "Tempo de inatividade, em segundos, antes do bloqueio.";
 };
+
+swayidle.screenTimeout = lib.mkOption {
+type = lib.types.ints.positive;
+default = 610;
+description = "Tempo de inatividade, em segundos, antes de desligar a tela.";
+};
 };
 
 config = lib.mkIf cfg.enable {
@@ -104,7 +110,7 @@ after = [ "graphical-session.target" ];
 unitConfig.ConditionUser = cfg.user;
 
 serviceConfig = {
-ExecStart = "${pkgs.swayidle}/bin/swayidle -w timeout ${toString cfg.swayidle.timeout} '${pkgs.swaylock}/bin/swaylock -f' before-sleep '${pkgs.swaylock}/bin/swaylock -f'";
+ExecStart = "${pkgs.swayidle}/bin/swayidle -w timeout ${toString cfg.swayidle.timeout} '${pkgs.swaylock}/bin/swaylock -f' timeout ${toString cfg.swayidle.screenTimeout} '${pkgs.sway}/bin/swaymsg \"output * power off\"' resume '${pkgs.sway}/bin/swaymsg \"output * power on\"' before-sleep '${pkgs.swaylock}/bin/swaylock -f'";
 Restart = "on-failure";
 };
 };

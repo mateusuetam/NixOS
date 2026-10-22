@@ -34,8 +34,9 @@ sway.enable = false;
 minimalshell = {
 enable = true;
 user = "mateus";
-wallpaper = "/home/mateus/Imagens/wallpaper";
+wallpaper = "/home/mateus/Imagens/.wallpaper";
 swayidle.timeout = 600;
+swayidle.screenTimeout = 610;
 };
 
 desktoputils.enable = true;
