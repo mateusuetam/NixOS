@@ -37,7 +37,7 @@
 "playing": "󰏤",
 "stopped": "󰓛"
 },
-"max-length": 100,
+"max-length": 70,
 "tooltip": false,
 "interval": "once"
 },
@@ -121,11 +121,11 @@
 },
 
 "backlight": {
-"format": "{icon} {percent}%",
+"format": "{icon}",
 "format-icons": ["󰛩","󱩎","󱩏","󱩐","󱩑","󱩒","󱩓","󱩔","󱩕","󱩖","󰛨"],
 "on-click": "gammastep -O 2000",
 "on-click-right": "pkill gammastep",
-"tooltip": false,
+"tooltip-format": "{percent}%",
 "interval": "once"
 },
 
@@ -135,12 +135,12 @@
 "warning": 29,
 "critical": 19
 },
-"format": "{icon} {capacity}%",
+"format": "{icon}",
 "format-full": "󰂄 {capacity}%",
-"format-charging": "󰂄 {capacity}%",
-"format-plugged": "󰂄 {capacity}%",
+"format-charging": "󰂄",
+"format-plugged": "󰂄",
 "format-icons": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
-"tooltip": false,
+"tooltip-format": "{capacity}%",
 "interval": 60
 },
 
@@ -155,11 +155,11 @@
 "weeks-pos": "right",
 "on-scroll": 1,
 "format": {
-"weekdays": "<span color='#629386'><b>{}</b></span>",
-"today": "<span color='#989F56'><b><u>{}</u></b></span>",
-"days": "<span color='#F4E6D2'><b>{}</b></span>",
-"weeks": "<span color='#E46A3A'><b>W{}</b></span>",
-"months": "<span color='#517894'><b>{}</b></span>"
+"weekdays": "<span color='#959A6B'><b>{}</b></span>",
+"today": "<span color='#F07342'><b><u>{}</u></b></span>",
+"days": "<span color='#FFE9C7'><b>{}</b></span>",
+"weeks": "<span color='#E39C45'><b>W{}</b></span>",
+"months": "<span color='#768F80'><b>{}</b></span>"
 }
 },
 "interval": 60

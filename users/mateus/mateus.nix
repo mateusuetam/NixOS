@@ -28,8 +28,8 @@ my = {
 opensource-apps.enable = true;
 proprietary-apps.enable = true;
 
-niri.enable = true;
-sway.enable = false;
+niri.enable = false;
+sway.enable = true;
 
 minimalshell = {
 enable = true;
