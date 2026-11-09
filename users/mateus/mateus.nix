@@ -4,6 +4,8 @@
 imports = [
 ./bundles/apps/opensource-apps.nix
 ./bundles/apps/proprietary-apps.nix
+./bundles/environments/gnome.nix
+./bundles/environments/kde.nix
 ./bundles/environments/niri.nix
 ./bundles/environments/sway.nix
 ./bundles/shells/minimalshell.nix
@@ -28,11 +30,13 @@ my = {
 opensource-apps.enable = true;
 proprietary-apps.enable = true;
 
-niri.enable = true;
+gnome.enable = true;
+kde.enable = false;
+niri.enable = false;
 sway.enable = false;
 
 minimalshell = {
-enable = true;
+enable = false;
 user = "mateus";
 wallpaper = "/home/mateus/Imagens/.wallpaper";
 swayidle.timeout = 600;
@@ -41,7 +45,7 @@ swayidle.screenTimeout = 610;
 
 desktoputils.enable = true;
 fonts.enable = true;
-neovim.enable = true;
+neovim.enable = false;
 
 homemanager = {
 enable = true;

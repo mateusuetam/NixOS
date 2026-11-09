@@ -124,13 +124,16 @@ SystemMaxUse = "64M";
 };
 };
 avahi.enable = false;
+openssh.enable = false;
+samba.enable = false;
 };
 
 documentation = {
-man.enable = true;
-info.enable = false;
 doc.enable = false;
+dev.enable = false;
+man.enable = false;
 nixos.enable = false;
+info.enable = false;
 };
 
 my.users.mateus.enable = true;
