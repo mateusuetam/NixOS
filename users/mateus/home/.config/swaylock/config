@@ -10,25 +10,25 @@ indicator-thickness=10px
 font=Noto Sans
 font-size=20px
 
-inside-color=1A1515
-inside-caps-lock-color=1A1515
+inside-color=000000
+inside-caps-lock-color=000000
 
-inside-clear-color=1A1515
-inside-ver-color=1A1515
-inside-wrong-color=1A1515
+inside-clear-color=000000
+inside-ver-color=000000
+inside-wrong-color=000000
 
-ring-color=453636
+ring-color=241f31
 
-ring-clear-color=959A6B
-ring-ver-color=E39C45
-ring-wrong-color=CF223E
+ring-clear-color=57e389
+ring-ver-color=62a0ea
+ring-wrong-color=ed333b
 
-text-color=FFE9C7
-text-caps-lock-color=FFE9C7
+text-color=ffffff
+text-caps-lock-color=ffffff
 
-text-clear-color=959A6B
-text-ver-color=E39C45
-text-wrong-color=CF223E
+text-clear-color=8ff0a4
+text-ver-color=99c1f1
+text-wrong-color=f66151
 
-key-hl-color=F07342
-bs-hl-color=CF223E
+key-hl-color=62a0ea
+bs-hl-color=ed333b

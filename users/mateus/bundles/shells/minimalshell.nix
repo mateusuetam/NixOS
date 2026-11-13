@@ -4,11 +4,14 @@ let
 cfg = config.my.minimalshell;
 
 minimalshellPackages = with pkgs; [
+adwaita-icon-theme
+bc
 cliphist
 foot
 gammastep
 libnotify
 mako
+mpv
 playerctl
 swaybg
 swayidle
@@ -49,6 +52,10 @@ description = "Tempo de inatividade, em segundos, antes de desligar a tela.";
 
 config = lib.mkIf cfg.enable {
 users.users.${cfg.user}.packages = minimalshellPackages;
+
+fonts.packages = with pkgs; [
+nerd-fonts.symbols-only
+];
 
 systemd.user.targets.minimalshell = {
 description = "Serviços para ambiente de trabalho minimalista";

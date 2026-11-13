@@ -5,6 +5,10 @@
 "mpris"
 ],
 
+"modules-center": [
+"clock"
+],
+
 "modules-right": [
 "tray",
 "idle_inhibitor",
@@ -15,8 +19,7 @@
 "wireplumber#source",
 "wireplumber#sink",
 "backlight",
-"battery",
-"clock"
+"battery"
 ],
 
 "sway/workspaces": {
@@ -25,7 +28,11 @@
 },
 
 "niri/workspaces": {
-"format": "{index}",
+"format": "{icon}",
+"format-icons": {
+"active": "",
+"default": ""
+},
 "interval": "once"
 },
 
@@ -37,9 +44,28 @@
 "playing": "󰏤",
 "stopped": "󰓛"
 },
-"max-length": 100,
+"max-length": 70,
 "tooltip": false,
 "interval": "once"
+},
+
+"clock": {
+"format": "{:%H:%M}",
+"format-alt": "{:L%a. %e de %b. %H:%M}",
+"locale": "pt_BR.UTF-8",
+"tooltip-format": "<tt><span size='11pt'>{calendar}</span></tt>",
+"calendar": {
+"mode": "month",
+"mode-mon-col": 1,
+"on-scroll": 1,
+"format": {
+"weekdays": "<span color='#57e389'><b>{}</b></span>",
+"today": "<span color='#62a0ea'><b><u>{}</u></b></span>",
+"days": "<span color='#ffffff'><b>{}</b></span>",
+"months": "<span color='#c061cb'><b>{}</b></span>"
+}
+},
+"interval": 60
 },
 
 "tray": {
@@ -141,27 +167,6 @@
 "format-plugged": "󰂄",
 "format-icons": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
 "tooltip-format": "{capacity}%",
-"interval": 60
-},
-
-"clock": {
-"format": "{:%H:%M}",
-"format-alt": "{:L%A, %e de %b - %H:%M}",
-"locale": "pt_BR.UTF-8",
-"tooltip-format": "<tt><span size='11pt'>{calendar}</span></tt>",
-"calendar": {
-"mode": "month",
-"mode-mon-col": 1,
-"weeks-pos": "right",
-"on-scroll": 1,
-"format": {
-"weekdays": "<span color='#959A6B'><b>{}</b></span>",
-"today": "<span color='#F07342'><b><u>{}</u></b></span>",
-"days": "<span color='#FFE9C7'><b>{}</b></span>",
-"weeks": "<span color='#E39C45'><b>W{}</b></span>",
-"months": "<span color='#768F80'><b>{}</b></span>"
-}
-},
 "interval": 60
 }
 }

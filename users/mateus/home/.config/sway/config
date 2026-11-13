@@ -1,7 +1,7 @@
 include /etc/sway/config.d/*
-set $fg #FFE9C7
-set $unfocused #2D2424
-set $urgent #CF223E
+set $fg #62a0ea
+set $unfocused #5e5c64
+set $urgent #ed333b
 output HDMI-A-1 {
 mode 1920x1080@60.000Hz
 subpixel rgb

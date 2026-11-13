@@ -1,14 +1,6 @@
 prefer-no-csd
-animations {
-off
-}
 hotkey-overlay {
 skip-at-startup
-}
-overview {
-workspace-shadow {
-off
-}
 }
 gestures {
 hot-corners {
@@ -46,9 +38,9 @@ layout {
 background-color "transparent"
 border {
 width 2
-active-color "#FFE9C7"
-inactive-color "#2D2424"
-urgent-color "#CF223E"
+active-color "#62a0ea"
+inactive-color "#5e5c64"
+urgent-color "#ed333b"
 }
 gaps 10
 struts {

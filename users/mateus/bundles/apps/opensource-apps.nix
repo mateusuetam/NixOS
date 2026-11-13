@@ -11,7 +11,6 @@ firefox.enable = true;
 
 users.users.mateus.packages = with pkgs; [
 gimp
-mpv
 proton-vpn
 wireguard-tools
 ];
