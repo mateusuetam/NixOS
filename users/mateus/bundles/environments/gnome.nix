@@ -8,30 +8,26 @@ config = lib.mkIf config.my.gnome.enable {
 services = {
 displayManager.gdm.enable = true;
 desktopManager.gnome.enable = true;
+gnome.core-apps.enable = false;
+gnome.core-developer-tools.enable = false;
+gnome.games.enable = false;
 };
 
+environment.systemPackages = with pkgs; [
+decibels
+gnome-calculator
+gnome-text-editor
+gnome-console
+loupe
+nautilus
+papers
+showtime
+];
+
 environment.gnome.excludePackages = with pkgs; [
-baobab
-epiphany
-gnome-calendar
-gnome-characters
-gnome-clocks
-gnome-connections
-gnome-contacts
-gnome-disk-utility
-gnome-font-viewer
-gnome-logs
-gnome-maps
-gnome-music
-gnome-system-monitor
 gnome-tecla
 gnome-tour
 gnome-user-docs
-gnome-weather
-seahorse
-simple-scan
-snapshot
-yelp
 ];
 };
 }
