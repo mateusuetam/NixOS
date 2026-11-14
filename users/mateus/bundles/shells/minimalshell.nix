@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, utils, ... }:
 
 let
 cfg = config.my.minimalshell;
@@ -20,6 +20,32 @@ waybar
 wl-clipboard
 ];
 
+commonHardening = {
+NoNewPrivileges = true;
+RestrictSUIDSGID = true;
+UMask = "0077";
+};
+
+localSocketHardening = commonHardening // {
+RestrictAddressFamilies = [
+"AF_UNIX"
+];
+};
+
+lockCommand = lib.escapeShellArgs ["${pkgs.swaylock}/bin/swaylock" "-f"];
+
+powerOffCommand =
+if cfg.compositor == "niri" then
+lib.escapeShellArgs ["${pkgs.niri}/bin/niri" "msg" "action" "power-off-monitors"]
+else
+lib.escapeShellArgs ["${pkgs.sway}/bin/swaymsg" "output * power off"];
+
+powerOnCommand =
+if cfg.compositor == "niri" then
+lib.escapeShellArgs ["${pkgs.niri}/bin/niri" "msg" "action" "power-on-monitors"]
+else
+lib.escapeShellArgs ["${pkgs.sway}/bin/swaymsg" "output * power on"];
+
 in
 {
 options.my.minimalshell = {
@@ -37,6 +63,12 @@ description = "Caminho da imagem usada pelo swaybg.";
 example = "/home/user/Imagens/Wallpaper.png";
 };
 
+compositor = lib.mkOption {
+type = lib.types.enum [ "sway" "niri" ];
+default = "niri";
+description = "Compositor utilizado pela sessão.";
+};
+
 swayidle.timeout = lib.mkOption {
 type = lib.types.ints.positive;
 default = 600;
@@ -51,6 +83,13 @@ description = "Tempo de inatividade, em segundos, antes de desligar a tela.";
 };
 
 config = lib.mkIf cfg.enable {
+assertions = [
+{
+assertion = cfg.swayidle.screenTimeout > cfg.swayidle.timeout;
+message = ''O valor de screenTimeout deve ser maior que o valor de timeout. A tela deve ser desligada somente depois do bloqueio.'';
+}
+];
+
 users.users.${cfg.user}.packages = minimalshellPackages;
 
 fonts.packages = with pkgs; [
@@ -78,9 +117,9 @@ after = [ "graphical-session.target" ];
 unitConfig.ConditionUser = cfg.user;
 
 serviceConfig = {
-ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store";
+ExecStart = utils.escapeSystemdExecArgs ["${pkgs.wl-clipboard}/bin/wl-paste" "--watch" "${pkgs.cliphist}/bin/cliphist" "-max-items" "100" "store"];
 Restart = "on-failure";
-};
+} // localSocketHardening;
 };
 
 mako = {
@@ -93,7 +132,7 @@ unitConfig.ConditionUser = cfg.user;
 serviceConfig = {
 ExecStart = "${pkgs.mako}/bin/mako";
 Restart = "on-failure";
-};
+} // localSocketHardening;
 };
 
 swaybg = {
@@ -104,9 +143,9 @@ after = [ "graphical-session.target" ];
 unitConfig.ConditionUser = cfg.user;
 
 serviceConfig = {
-ExecStart = "${pkgs.swaybg}/bin/swaybg -i ${cfg.wallpaper} -m fill";
+ExecStart = utils.escapeSystemdExecArgs ["${pkgs.swaybg}/bin/swaybg" "-i" cfg.wallpaper "-m" "fill"];
 Restart = "on-failure";
-};
+} // localSocketHardening;
 };
 
 swayidle = {
@@ -117,8 +156,9 @@ after = [ "graphical-session.target" ];
 unitConfig.ConditionUser = cfg.user;
 
 serviceConfig = {
-ExecStart = "${pkgs.swayidle}/bin/swayidle -w timeout ${toString cfg.swayidle.timeout} '${pkgs.swaylock}/bin/swaylock -f' timeout ${toString cfg.swayidle.screenTimeout} '${pkgs.sway}/bin/swaymsg \"output * power off\"' resume '${pkgs.sway}/bin/swaymsg \"output * power on\"' before-sleep '${pkgs.swaylock}/bin/swaylock -f'";
+ExecStart = utils.escapeSystemdExecArgs ["${pkgs.swayidle}/bin/swayidle" "-w" "timeout" (toString cfg.swayidle.timeout) lockCommand "timeout" (toString cfg.swayidle.screenTimeout) powerOffCommand "resume" powerOnCommand "before-sleep" lockCommand];
 Restart = "on-failure";
+UMask = "0077";
 };
 };
 
@@ -146,6 +186,9 @@ unitConfig.ConditionUser = cfg.user;
 serviceConfig = {
 ExecStart = "${pkgs.waybar}/bin/waybar";
 Restart = "on-failure";
+NoNewPrivileges = true;
+RestrictSUIDSGID = true;
+UMask = "0077";
 };
 };
 };
