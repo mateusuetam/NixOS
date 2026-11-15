@@ -40,11 +40,11 @@
 "format": "{status_icon} {artist} - {title}",
 "format-paused": "{status_icon} {artist} - {title}",
 "status-icons": {
-"paused": "󰐊",
-"playing": "󰏤",
-"stopped": "󰓛"
+"paused": "",
+"playing": "",
+"stopped": ""
 },
-"max-length": 70,
+"max-length": 48,
 "tooltip": false,
 "interval": "once"
 },
@@ -62,15 +62,15 @@
 "weekdays": "<span color='#57e389'><b>{}</b></span>",
 "today": "<span color='#62a0ea'><b><u>{}</u></b></span>",
 "days": "<span color='#ffffff'><b>{}</b></span>",
-"months": "<span color='#c061cb'><b>{}</b></span>"
+"months": "<span color='#f8e45c'><b>{}</b></span>"
 }
 },
 "interval": 60
 },
 
 "tray": {
-"icon-size": 14,
-"spacing": 20,
+"icon-size": 15,
+"spacing": 24,
 "show-passive-items": true,
 "interval": "once"
 },
@@ -115,6 +115,7 @@
 "network": {
 "format-wifi": "󰤥",
 "format-ethernet": "󰈁",
+"format-linked": "󰖂",
 "format-disconnected": "󰤠",
 "format-disabled": "󰤭",
 "on-click": "foot -e sh -c 'nmcli device show; printf \"\\nPressione ENTER para fechar...\"; read'",
@@ -125,24 +126,24 @@
 
 "wireplumber#source": {
 "node-type": "Audio/Source",
-"format": " {volume}%",
+"format": "",
 "format-muted": "",
 "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
 "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 1%+",
 "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-",
-"tooltip-format": "{node_name}",
+"tooltip-format": "{node_name} ({volume}%)",
 "interval": "once"
 },
 
 "wireplumber#sink": {
 "node-type": "Audio/Sink",
-"format": "{icon} {volume}%",
+"format": "{icon}",
 "format-muted": "",
 "format-icons": ["","","",""],
 "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+",
 "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
-"tooltip-format": "{node_name}",
+"tooltip-format": "{node_name} ({volume}%)",
 "interval": "once"
 },
 
@@ -157,12 +158,19 @@
 
 "battery": {
 "states": {
-"good": 80,
-"warning": 29,
-"critical": 19
+"warning": 30,
+"critical": 20
+},
+"events": {
+"on-charging": "notify-send -u normal 'Carregador' 'Carregador conectado'",
+"on-charging-80": "notify-send -u normal 'Bateria' 'A bateria está com 80% de carga'",
+"on-charging-100": "notify-send -u normal 'Bateria' 'Bateria carregada!'",
+"on-discharging": "notify-send -u normal 'Carregador' 'Carregador desconectado'",
+"on-discharging-warning": "notify-send -u normal 'Bateria' 'Energia baixa'",
+"on-discharging-critical": "notify-send -u critical 'Bateria' 'Energia muito baixa'"
 },
 "format": "{icon}",
-"format-full": "󰂄 {capacity}%",
+"format-full": "󰂄",
 "format-charging": "󰂄",
 "format-plugged": "󰂄",
 "format-icons": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],

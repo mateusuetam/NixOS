@@ -39,6 +39,7 @@ minimalshell = {
 enable = false;
 user = "mateus";
 wallpaper = "/home/mateus/Imagens/.wallpaper";
+compositor = "niri";
 swayidle.timeout = 600;
 swayidle.screenTimeout = 610;
 };

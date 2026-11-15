@@ -1,6 +1,6 @@
 @define-color fg #ffffff;
 @define-color bg #000000;
-@define-color border #62a0ea;
+@define-color border #241f31;
 @define-color highlight #62a0ea;
 @define-color alert #ed333b;
 
@@ -8,14 +8,17 @@
 
 #waybar>box {background-color: @bg;}
 
-#mpris, #workspaces button, #clock, .modules-right>widget>*, menuitem, tooltip label {font-family: "Noto Sans"; font-size: 14px; font-weight: 500; color: @fg;}
+#mpris, #workspaces button, #clock, .modules-right>widget>*, menuitem, tooltip label {font-family: "Noto Sans"; font-size: 15px; font-weight: 600; color: @fg;}
 
-#mpris, #workspaces button, #clock, .modules-right>widget>*, menuitem {margin: 5px 10px;}
+#mpris, #workspaces button, #clock, .modules-right>widget>* {margin: 4px 12px;}
 
-tooltip label {margin: 5px;}
+tooltip label {margin: 1px;}
+tooltip decoration {padding: 1px 2px;}
 
-menu, tooltip decoration {background-color: @bg; border: 2px solid @border;}
+menuitem {margin: 1px;}
+menu {padding: 4px 8px;}
 
-#workspaces button:hover, #workspaces button.focused, #workspaces button.active, #mpris:hover, .modules-right>widget>*:hover, menu menuitem:hover {color: @highlight;}
+menu, tooltip decoration {background-color: @bg; border: 1px solid @border; border-radius: 16px;}
 
+menu menuitem:hover {color: @highlight;}
 #workspaces button.urgent {color: @alert;}

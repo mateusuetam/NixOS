@@ -25,12 +25,10 @@ pointer_accel 0
 tap enabled
 natural_scroll enabled
 }
-gaps inner 10
-gaps outer 10
-smart_gaps on
+gaps inner 16
+gaps outer 16
 default_border pixel 2
 default_floating_border pixel 2
-smart_borders on
 client.focused $fg $fg $fg $fg
 client.focused_inactive $unfocused $unfocused $unfocused $unfocused
 client.unfocused $unfocused $unfocused $unfocused $unfocused

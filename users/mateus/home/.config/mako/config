@@ -3,24 +3,24 @@ sort=-time
 default-timeout=5000
 ignore-timeout=1
 icons=0
+anchor=top-center
 
 width=300
 height=110
 
 font=Noto Sans 12
 text-color=#ffffff
+text-alignment=center
 background-color=#000000
-border-size=2
-border-radius=0
-padding=15
-margin=5
+border-size=1
+border-radius=16
+border-color=#241f31
+padding=14
+margin=4
 
 [urgency=low]
-border-color=#57e389
 default-timeout=3000
 [urgency=normal]
-border-color=#62a0ea
 default-timeout=5000
 [urgency=high]
-border-color=#ed333b
 default-timeout=0

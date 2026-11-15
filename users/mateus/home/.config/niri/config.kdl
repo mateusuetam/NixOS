@@ -42,19 +42,19 @@ active-color "#62a0ea"
 inactive-color "#5e5c64"
 urgent-color "#ed333b"
 }
-gaps 10
+gaps 16
 struts {
-top 10
-right 10
-bottom 10
-left 10
+top 16
+right 16
+bottom 16
+left 16
 }
 focus-ring {
 off
 }
 }
 window-rule {
-geometry-corner-radius 0
+geometry-corner-radius 16
 clip-to-geometry true
 open-maximized true
 }
