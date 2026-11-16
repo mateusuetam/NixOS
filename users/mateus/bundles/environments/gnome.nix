@@ -13,7 +13,7 @@ gnome.core-developer-tools.enable = false;
 gnome.games.enable = false;
 };
 
-environment.systemPackages = with pkgs; [
+users.users.mateus.packages = with pkgs; [
 decibels
 gnome-calculator
 gnome-text-editor

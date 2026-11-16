@@ -23,11 +23,66 @@ inherit (config.my.homemanager) homeDir owner;
 
 configDir = "${homeDir}/.config";
 
+neovimShellExports = lib.optionalString config.my.neovim.enable ''
+export EDITOR=nvim
+export VISUAL=nvim
+'';
+
+bashrc = pkgs.writeText "mateus-bashrc" ''
+${neovimShellExports}
+${builtins.readFile ./.bashrc}
+'';
+
+bashProfile = pkgs.writeText "mateus-bash_profile" ''
+if [[ -f "$HOME/.bashrc" ]]; then
+. "$HOME/.bashrc"
+fi
+'';
+
+userName = builtins.head (lib.splitString ":" owner);
+fontconfigNixProfile = pkgs.writeText "100-nix.conf" ''
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+<fontconfig>
+<dir>/etc/profiles/per-user/${userName}/lib/X11/fonts</dir>
+<dir>/etc/profiles/per-user/${userName}/share/fonts</dir>
+</fontconfig>
+'';
+
+neovimEnvironment = pkgs.writeText "10-editor.conf" ''
+EDITOR=nvim
+VISUAL=nvim
+'';
+
 dotfiles = [
 {
 bundles = [];
-source = ./.bashrc;
+source = bashrc;
 target = "${homeDir}/.bashrc";
+}
+
+{
+bundles = [];
+source = bashProfile;
+target = "${homeDir}/.bash_profile";
+}
+
+{
+bundles = [ "fonts" ];
+source = fontconfigNixProfile;
+target = "${configDir}/fontconfig/conf.d/100-nix.conf";
+}
+
+{
+bundles = [ "neovim" ];
+source = ./.config/nvim/lua;
+target = "${configDir}/nvim/lua";
+}
+
+{
+bundles = [ "neovim" ];
+source = neovimEnvironment;
+target = "${configDir}/environment.d/10-editor.conf";
 }
 
 {

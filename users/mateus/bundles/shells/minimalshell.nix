@@ -92,10 +92,6 @@ message = ''O valor de screenTimeout deve ser maior que o valor de timeout. A te
 
 users.users.${cfg.user}.packages = minimalshellPackages;
 
-fonts.packages = with pkgs; [
-nerd-fonts.symbols-only
-];
-
 systemd.user.targets.minimalshell = {
 description = "Serviços para ambiente de trabalho minimalista";
 

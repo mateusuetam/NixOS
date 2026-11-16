@@ -1,14 +1,7 @@
 { config, lib, pkgs, ... }:
 
-{
-options.my.neovim.enable = lib.mkEnableOption "Bundle do Neovim";
-
-config = lib.mkIf config.my.neovim.enable {
-
-programs.neovim = {
-enable = true;
-defaultEditor = true;
-
+let
+mateusNeovim = pkgs.wrapNeovim pkgs.neovim-unwrapped {
 configure = {
 customRC = ''
 lua << EOF
@@ -23,8 +16,13 @@ telescope-nvim
 ];
 };
 };
-
-runtime."lua".source = ../../home/.config/nvim/lua;
 };
+
+in
+{
+options.my.neovim.enable = lib.mkEnableOption "Bundle do Neovim";
+
+config = lib.mkIf config.my.neovim.enable {
+users.users.mateus.packages = [ mateusNeovim ];
 };
 }

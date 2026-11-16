@@ -6,18 +6,11 @@ options.my.desktoputils.enable = lib.mkEnableOption "Bundle de ferramentas utili
 config = lib.mkIf config.my.desktoputils.enable {
 
 programs = {
-bash = {
-enable = true;
-interactiveShellInit = ''
-if [ -f ~/.bashrc ]; then
-. ~/.bashrc
-fi
-'';
-};
-git.enable = true;
+bash.enable = true;
 };
 
 users.users.mateus.packages = with pkgs; [
+git
 less
 tree
 unzip
