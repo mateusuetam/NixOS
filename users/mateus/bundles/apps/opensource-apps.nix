@@ -8,8 +8,6 @@ config = lib.mkIf config.my.opensource-apps.enable {
 users.users.mateus.packages = with pkgs; [
 firefox
 gimp
-proton-vpn
-wireguard-tools
 ];
 };
 }

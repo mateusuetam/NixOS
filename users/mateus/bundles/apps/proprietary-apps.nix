@@ -7,9 +7,6 @@ config = lib.mkIf config.my.proprietary-apps.enable {
 
 nixpkgs.config.allowUnfreePredicate = pkg:
 builtins.elem (lib.getName pkg) [
-"discord"
-"discord-unwrapped"
-"spotify"
 "steam"
 "steam-unwrapped"
 ];
@@ -19,8 +16,7 @@ steam.enable = true;
 };
 
 users.users.mateus.packages = with pkgs; [
-discord
-spotify
+
 ];
 };
 }
