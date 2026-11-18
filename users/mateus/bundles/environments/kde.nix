@@ -12,15 +12,19 @@ displayManager.plasma-login-manager.enable = true;
 
 environment.plasma6.excludePackages = with pkgs.kdePackages; [
 discover
-plasma-browser-integration
-qtsensors
-qttools
+dolphin-plugins
 khelpcenter
 krdp
+plasma-browser-integration
+plasma-keyboard
+qrca
+qtsensors
+qttools
+qtvirtualkeyboard
 ];
 
-users.users.mateus.packages = with pkgs; [
-kdePackages.kcalc
+users.users.mateus.packages = with pkgs.kdePackages; [
+kcalc
 ];
 };
 }
