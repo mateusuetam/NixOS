@@ -65,7 +65,6 @@ alias cp='cp -i'
 alias ls='ls -A1 --color=auto'
 alias grep='grep --color=auto'
 alias '..'='cd ..'
-alias rmcache='rm -rf "$HOME"/.cache/*'
 
 alias nrebuild='sudo nixos-rebuild switch --flake "$HOME"/Repos/NixOS#pc --show-trace'
 alias nupdate='nix flake update --flake "$HOME"/Repos/NixOS'
