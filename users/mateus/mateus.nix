@@ -30,13 +30,13 @@ my = {
 opensource-apps.enable = true;
 proprietary-apps.enable = true;
 
-gnome.enable = true;
+gnome.enable = false;
 kde.enable = false;
-niri.enable = false;
+niri.enable = true;
 sway.enable = false;
 
 minimalshell = {
-enable = false;
+enable = true;
 user = "mateus";
 wallpaper = "/home/mateus/Imagens/.wallpaper";
 compositor = "niri";
@@ -46,7 +46,7 @@ swayidle.screenTimeout = 610;
 
 desktoputils.enable = true;
 fonts.enable = true;
-neovim.enable = false;
+neovim.enable = true;
 
 homemanager = {
 enable = true;
