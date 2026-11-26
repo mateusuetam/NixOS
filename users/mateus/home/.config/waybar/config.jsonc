@@ -1,0 +1,184 @@
+{
+"modules-left": [
+"sway/workspaces",
+"niri/workspaces",
+"mpris"
+],
+
+"modules-center": [
+"clock"
+],
+
+"modules-right": [
+"tray",
+"idle_inhibitor",
+"custom/wallpaper",
+"custom/cliphist",
+"bluetooth",
+"network",
+"wireplumber#source",
+"wireplumber#sink",
+"backlight",
+"battery"
+],
+
+"sway/workspaces": {
+"format": "{icon}",
+"format-icons": {
+"focused": "",
+"default": ""
+},
+"interval": "once"
+},
+
+"niri/workspaces": {
+"format": "{icon}",
+"format-icons": {
+"active": "",
+"default": ""
+},
+"interval": "once"
+},
+
+"mpris": {
+"format": "{status_icon} {artist} - {title}",
+"format-paused": "{status_icon} {artist} - {title}",
+"status-icons": {
+"paused": "",
+"playing": "",
+"stopped": ""
+},
+"max-length": 48,
+"tooltip": false,
+"interval": "once"
+},
+
+"clock": {
+"format": "{:%H:%M}",
+"format-alt": "{:L%a. %e de %b. %H:%M}",
+"locale": "pt_BR.UTF-8",
+"tooltip-format": "<tt><span size='11pt'>{calendar}</span></tt>",
+"calendar": {
+"mode": "month",
+"mode-mon-col": 1,
+"on-scroll": 1,
+"format": {
+"months": "<span color='#ffffff'><b>{}</b></span>",
+"weekdays": "<span color='#ffffff' alpha='65%'><i>{}</i></span>",
+"days": "<span color='#ffffff'><b>{}</b></span>",
+"today": "<span color='#ffffff' alpha='65%'><b><u>{}</u></b></span>"
+}
+},
+"interval": 60
+},
+
+"tray": {
+"icon-size": 15,
+"spacing": 24,
+"show-passive-items": true,
+"interval": "once"
+},
+
+"idle_inhibitor": {
+"format": "{icon}",
+"format-icons": {
+"activated": "󰅶",
+"deactivated": "󰾪"
+},
+"timeout": 720,
+"tooltip": false,
+"interval": "once"
+},
+
+"custom/wallpaper": {
+"format": "󰸉",
+"on-click": "foot -e sh -c 'while :; do printf \"\\nCaminho do wallpaper ('q' para sair): \"; IFS= read -r input || exit 0; [ \"$input\" = q ] && exit 0; case \"$input\" in /*) ;; *) printf \"Use um caminho válido, exemplo: %s/Imagens/wallpaper.png\\n\" \"$HOME\"; continue ;; esac; wallpaper=$(realpath -e -- \"$input\" 2>/dev/null) || { printf \"Arquivo não encontrado.\\n\"; continue; }; [ -f \"$wallpaper\" ] || { printf \"O caminho não é um arquivo regular.\\n\"; continue; }; if ln -sfnT -- \"$wallpaper\" \"$HOME/Imagens/.wallpaper\" && systemctl --user restart swaybg.service; then printf \"Wallpaper atualizado.\\n\"; exit 0; else printf \"Falha ao atualizar o wallpaper.\\n\"; fi; done'",
+"tooltip": false,
+"interval": "once"
+},
+
+"custom/cliphist": {
+"format": "󱛢",
+"on-click": "foot -e sh -c 'cliphist list; printf \"\\nPressione ENTER para fechar...\"; read'",
+"on-click-right": "cliphist wipe && notify-send 'Cliphist' 'Histórico limpo!'",
+"tooltip": false,
+"interval": "once"
+},
+
+"bluetooth": {
+"format-on": "󰂯",
+"format-off": "󰂲",
+"format-disabled": "󰂲",
+"format-connected": "󰂰",
+"on-click": "foot -e bluetoothctl",
+"on-click-right": "rfkill toggle bluetooth",
+"tooltip-format": "{device_alias} ({device_battery_percentage}%)",
+"interval": 60
+},
+
+"network": {
+"format-wifi": "󰤥",
+"format-ethernet": "󰈁",
+"format-linked": "󰖂",
+"format-disconnected": "󰤠",
+"format-disabled": "󰤭",
+"on-click": "foot -e sh -c 'nmcli device show; printf \"\\nPressione ENTER para fechar...\"; read'",
+"on-click-right": "rfkill toggle wlan",
+"tooltip-format": "{essid}",
+"interval": "once"
+},
+
+"wireplumber#source": {
+"node-type": "Audio/Source",
+"format": "",
+"format-muted": "",
+"on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+"on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 1%+",
+"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-",
+"tooltip-format": "{node_name} ({volume}%)",
+"interval": "once"
+},
+
+"wireplumber#sink": {
+"node-type": "Audio/Sink",
+"format": "{icon}",
+"format-muted": "",
+"format-icons": ["","","",""],
+"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+"on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 1%+",
+"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+"tooltip-format": "{node_name} ({volume}%)",
+"interval": "once"
+},
+
+"backlight": {
+"format": "{icon}",
+"format-icons": ["󰛩","󱩎","󱩏","󱩐","󱩑","󱩒","󱩓","󱩔","󱩕","󱩖","󰛨"],
+"on-click": "gammastep -O 2000",
+"on-click-right": "pkill gammastep",
+"tooltip-format": "{percent}%",
+"interval": "once"
+},
+
+"battery": {
+"states": {
+"warning": 30,
+"critical": 20
+},
+"events": {
+"on-charging": "notify-send -u normal 'Carregador' 'Carregador conectado'",
+"on-charging-80": "notify-send -u normal 'Bateria' 'A bateria está com 80% de carga'",
+"on-charging-100": "notify-send -u normal 'Bateria' 'Bateria carregada!'",
+"on-discharging": "notify-send -u normal 'Carregador' 'Carregador desconectado'",
+"on-discharging-warning": "notify-send -u normal 'Bateria' 'Energia baixa'",
+"on-discharging-critical": "notify-send -u critical 'Bateria' 'Energia muito baixa'"
+},
+"format": "{icon}",
+"format-full": "󰂄",
+"format-charging": "󰂄",
+"format-plugged": "󰂄",
+"format-icons": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+"tooltip-format": "{capacity}%",
+"interval": 60
+}
+}

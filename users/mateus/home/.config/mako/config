@@ -1,0 +1,26 @@
+layer=overlay
+sort=-time
+default-timeout=5000
+ignore-timeout=1
+icons=0
+anchor=top-center
+
+width=300
+height=110
+
+font=Noto Sans 12
+text-color=#ffffff
+text-alignment=center
+background-color=#000000
+border-size=1
+border-radius=16
+border-color=#101010
+padding=14
+margin=4
+
+[urgency=low]
+default-timeout=3000
+[urgency=normal]
+default-timeout=5000
+[urgency=high]
+default-timeout=0

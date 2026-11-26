@@ -1,0 +1,29 @@
+@define-color fg #ffffff;
+@define-color bg #000000;
+@define-color border #101010;
+@define-color highlight #646464;
+
+* {all: unset;}
+
+#waybar>box {background-color: @bg; border-bottom: 1px solid @border;}
+
+#workspaces button, #mpris, #clock, .modules-right>widget>*, tooltip label, menuitem {font-family: "Noto Sans"; font-size: 15px; font-weight: 600; color: @fg;}
+
+#workspaces button {opacity: 0.2; margin-left: 6px; margin-right: 6px;}
+#workspaces button.focused, #workspaces button.active {opacity: 1.0;}
+#workspaces button.empty {opacity: 0.1;}
+
+#mpris, #clock, .modules-right>widget>* {margin: 4px 12px;}
+#workspaces {margin-left: 4px;}
+#battery {margin-right: 10px;}
+@keyframes battery-pulse {0% {color: @fg;} 50% {color: alpha(@fg, 0.2);} 100% {color: @fg;}}
+#battery.warning:not(.charging) {color: @fg; animation-name: battery-pulse; animation-duration: 2s; animation-timing-function: ease-in-out; animation-iteration-count: infinite;}
+
+tooltip decoration, menu {background-color: @bg; border: 1px solid @border; border-radius: 16px;}
+
+tooltip decoration {padding: 1px 2px;}
+tooltip label {margin: 1px;}
+
+menu {padding: 4px;}
+menuitem {border-radius: 8px; padding: 4px 8px; margin: 1px;}
+menuitem:hover {color: alpha(@fg, 0.8); background-color: alpha(@highlight, 0.1);}
